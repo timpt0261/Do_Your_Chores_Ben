@@ -13,6 +13,14 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 
+		// Custom interaction for player : Reuben Chavez
+		[SerializeField]
+		private bool interact;
+		[SerializeField]
+		private bool inventory;
+		[SerializeField]
+		private bool attack;
+
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
@@ -21,35 +29,34 @@ namespace StarterAssets
 		public bool cursorInputForLook = true;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
-		public void OnMove(InputValue value)
+		public void OnMove(InputAction.CallbackContext value)
 		{
-			MoveInput(value.Get<Vector2>());
+			MoveInput(value.ReadValue<Vector2>());
 		}
 
-		public void OnLook(InputValue value)
+		public void OnLook(InputAction.CallbackContext value)
 		{
-			if(cursorInputForLook)
+			if (cursorInputForLook)
 			{
-				LookInput(value.Get<Vector2>());
+				LookInput(value.ReadValue<Vector2>());
 			}
 		}
 
-		public void OnJump(InputValue value)
+		public void OnJump(InputAction.CallbackContext value)
 		{
-			JumpInput(value.isPressed);
+			JumpInput(value.action.triggered);
 		}
 
-		public void OnSprint(InputValue value)
+		public void OnSprint(InputAction.CallbackContext value)
 		{
-			SprintInput(value.isPressed);
+			SprintInput(value.ReadValue<float>() == 1);
 		}
+
 #endif
-
-
 		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
-		} 
+		}
 
 		public void LookInput(Vector2 newLookDirection)
 		{
@@ -76,5 +83,5 @@ namespace StarterAssets
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
 	}
-	
+
 }
