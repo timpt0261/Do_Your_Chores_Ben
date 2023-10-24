@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class InteractableManger : MonoBehaviour
 {
-    private GameObject[] interactables;
+    [SerializeField]
+    private GameObject[] _interactables;
 
-    private void Start()
+    private void Awake()
     {
 
-        if (interactables == null)
+        if (_interactables == null)
         {
-            interactables = GameObject.FindGameObjectsWithTag("Interactable_Object");
+            _interactables = GameObject.FindGameObjectsWithTag("Interactable");
         }
     }
 }

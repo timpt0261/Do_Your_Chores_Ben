@@ -8,10 +8,17 @@ public class Chore : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
 
+    private Transform transform;
+
 
     public bool Interact(Interactor interactor)
     {
-        Debug.Log("Interacting With Block");
+        Debug.Log("Interaacting");
         return true;
+    }
+
+    private void Update()
+    {
+        // if picked up follow postion of player
     }
 }
