@@ -13,7 +13,7 @@ public class Chore : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        Debug.Log("Interaacting");
+        Debug.Log("Interacting");
         return true;
     }
 

@@ -11,9 +11,7 @@ public class Interactor : MonoBehaviour
     [SerializeField] private LayerMask _interactableMask;
     [SerializeField] private Interaction_UI _interaction_Ui;
 
-    [SerializeField] private Transform _grapPoint;
-
-    private bool interact;
+    public bool interact;
 
     public bool Interact { get { return interact; } }
 
@@ -23,6 +21,17 @@ public class Interactor : MonoBehaviour
     private IInteractable _interactable;
 
     private Transform _interactable_transform;
+
+    [SerializeField] Transform holdArea;
+    private GameObject heldObject = null;
+    private Rigidbody heldObjectRigidbody = null;
+
+    [SerializeField] private float pickupRange = 5.0f;
+    [SerializeField] private float pickupForce = 150.0f;
+
+    private void Awake() {
+        _pickUpController = GetComponent<PickUpController>();
+    }
 
     // Callback Event that takes mapped inoput for input
     public void OnInteract(InputAction.CallbackContext value)
@@ -51,7 +60,7 @@ public class Interactor : MonoBehaviour
                 if (interact)
                 {
                     _interactable.Interact(this);
-                    _interactable_transform.position = _grapPoint.position;
+                    HandlePickUp(holdArea, heldObject, heldObjectRigidbody, pickupRange, pickupRange);
                 }
             }
 
@@ -70,6 +79,64 @@ public class Interactor : MonoBehaviour
         Gizmos.DrawWireSphere(_interactionPoint.position, _interactionPointRadius);
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(_grapPoint.position, _interactionPointRadius);
+        Gizmos.DrawWireSphere(holdArea.position, _interactionPointRadius);
     }
+
+
+
+     public void HandlePickUp(Transform holdArea, GameObject heldObject, Rigidbody heldObjectRigidbody, float pickupRange = 5.0f, float pickupForce = 150.0f)
+    {
+        if (heldObject == null)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, pickupRange))
+            {
+                Debug.Log(hit.collider.gameObject);
+                PickUpObject(hit.collider.gameObject,heldObject, heldObjectRigidbody, holdArea);
+            }
+        }
+        else
+        {
+            DropObject( heldObject,heldObjectRigidbody);
+        }
+        if (heldObject != null)
+        {
+            MoveObject(holdArea, heldObject, heldObjectRigidbody, pickupForce);
+        }
+    }
+
+    private void MoveObject(Transform holdArea, GameObject heldObject, Rigidbody heldObjectRigidbody, float pickupForce)
+    {
+        if (Vector3.Distance(heldObject.transform.position, holdArea.position) > 0.1f)
+        {
+            Vector3 moveDirection = (holdArea.position - heldObject.transform.position);
+            heldObjectRigidbody.AddForce(moveDirection * pickupForce);
+        }
+    }
+
+    private void PickUpObject(GameObject pickObj, GameObject heldObject, Rigidbody heldObjectRigidbody, Transform holdArea)
+    {
+        Rigidbody pickObjRB = pickObj.GetComponent<Rigidbody>();
+        if (pickObjRB)
+        {
+            heldObjectRigidbody = pickObjRB;
+            heldObjectRigidbody.useGravity = false;
+            heldObjectRigidbody.drag = 10;
+            heldObjectRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+
+            heldObjectRigidbody.transform.parent = holdArea;
+            heldObject = pickObj;
+        }
+    }
+
+    private void DropObject(GameObject heldObject, Rigidbody heldObjectRigidbody)
+    {
+        heldObjectRigidbody.useGravity = true;
+        heldObjectRigidbody.drag = 1;
+        heldObjectRigidbody.constraints = RigidbodyConstraints.None;
+
+        heldObjectRigidbody.transform.parent = null;
+        heldObject = null;
+    }
+
 }
