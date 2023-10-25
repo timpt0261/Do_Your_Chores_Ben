@@ -1417,8 +1417,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _interaction_Ui: {fileID: 555411865708890880}
-  _grapPoint: {fileID: 4960359604131430947}
   _numfound: 0
+  holdArea: {fileID: 4960359604131430947}
+  pickupRange: 5
+  pickupForce: 150
 --- !u!114 &4416926081852918493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2821,7 +2823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4960359604131430947}
   m_Layer: 0
-  m_Name: GrabPoint
+  m_Name: AreaHold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
