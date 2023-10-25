@@ -19,8 +19,7 @@ public class Interactor : MonoBehaviour
     [SerializeField] private int _numfound;
 
     private IInteractable _interactable;
-
-    private Transform _interactable_transform;
+    private GameObject _interactable_Obj;
 
     [SerializeField] Transform holdArea;
     private GameObject heldObject = null;
@@ -29,15 +28,11 @@ public class Interactor : MonoBehaviour
     [SerializeField] private float pickupRange = 5.0f;
     [SerializeField] private float pickupForce = 150.0f;
 
-    private void Awake() {
-        _pickUpController = GetComponent<PickUpController>();
-    }
-
     // Callback Event that takes mapped inoput for input
     public void OnInteract(InputAction.CallbackContext value)
     {
         InteractInput(value.action.triggered);
-        Debug.Log(interact);
+/*        Debug.Log(interact);*/
     }
 
     public void InteractInput(bool newInteractState)
@@ -51,17 +46,18 @@ public class Interactor : MonoBehaviour
         if (_numfound > 0)
         {
             _interactable = _colliders[0].GetComponent<IInteractable>();
-            _interactable_transform = _colliders[0].GetComponent<Transform>();
+            _interactable_Obj = _colliders[0].gameObject;
 
             if (_interactable != null)
             {
                 if (!_interaction_Ui.IsDisplayed) _interaction_Ui.SetUp(_interactable.InteractionPrompt);
-
+                Debug.Log(interact);
                 if (interact)
                 {
                     _interactable.Interact(this);
-                    HandlePickUp(holdArea, heldObject, heldObjectRigidbody, pickupRange, pickupRange);
+                    HandlePickUp(_interactable_Obj);
                 }
+ 
             }
 
         }
@@ -70,6 +66,9 @@ public class Interactor : MonoBehaviour
             if (_interactable != null) _interactable = null;
             if (_interaction_Ui.IsDisplayed) _interaction_Ui.Close();
         }
+
+        HandlePickUp(heldObject);
+        
     }
 
 
@@ -84,29 +83,26 @@ public class Interactor : MonoBehaviour
 
 
 
-     public void HandlePickUp(Transform holdArea, GameObject heldObject, Rigidbody heldObjectRigidbody, float pickupRange = 5.0f, float pickupForce = 150.0f)
+    public void HandlePickUp(GameObject pickObj)
     {
+        Debug.Log("Handle Pick Up called");
         if (heldObject == null)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, pickupRange))
-            {
-                Debug.Log(hit.collider.gameObject);
-                PickUpObject(hit.collider.gameObject,heldObject, heldObjectRigidbody, holdArea);
-            }
+            PickUpObject(pickObj);
         }
         else
         {
-            DropObject( heldObject,heldObjectRigidbody);
+            DropObject();
         }
         if (heldObject != null)
         {
-            MoveObject(holdArea, heldObject, heldObjectRigidbody, pickupForce);
+            MoveObject();
         }
     }
 
-    private void MoveObject(Transform holdArea, GameObject heldObject, Rigidbody heldObjectRigidbody, float pickupForce)
+    private void MoveObject()
     {
+        Debug.Log("Move Object called");
         if (Vector3.Distance(heldObject.transform.position, holdArea.position) > 0.1f)
         {
             Vector3 moveDirection = (holdArea.position - heldObject.transform.position);
@@ -114,8 +110,10 @@ public class Interactor : MonoBehaviour
         }
     }
 
-    private void PickUpObject(GameObject pickObj, GameObject heldObject, Rigidbody heldObjectRigidbody, Transform holdArea)
+    private void PickUpObject(GameObject pickObj)
     {
+        Debug.Log(pickObj.name);
+        Debug.Log("Pick Up Object called");
         Rigidbody pickObjRB = pickObj.GetComponent<Rigidbody>();
         if (pickObjRB)
         {
@@ -129,12 +127,11 @@ public class Interactor : MonoBehaviour
         }
     }
 
-    private void DropObject(GameObject heldObject, Rigidbody heldObjectRigidbody)
+    private void DropObject()
     {
         heldObjectRigidbody.useGravity = true;
         heldObjectRigidbody.drag = 1;
         heldObjectRigidbody.constraints = RigidbodyConstraints.None;
-
         heldObjectRigidbody.transform.parent = null;
         heldObject = null;
     }

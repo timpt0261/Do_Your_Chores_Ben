@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 1651378095}
   - component: {fileID: 1651378100}
   m_Layer: 7
-  m_Name: Chore
+  m_Name: Chore_1
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
