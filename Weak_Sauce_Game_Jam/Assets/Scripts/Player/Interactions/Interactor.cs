@@ -32,7 +32,6 @@ public class Interactor : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext value)
     {
         InteractInput(value.action.triggered);
-/*        Debug.Log(interact);*/
     }
 
     public void InteractInput(bool newInteractState)
