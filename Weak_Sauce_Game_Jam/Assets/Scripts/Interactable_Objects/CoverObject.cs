@@ -29,7 +29,7 @@ public class CoverObject : MonoBehaviour, IInteractable
 
     private void SetUpCoverObj(Interactor interactor)
     {
-        if (interactor.Hide)
+        if (interactor.playerHide.Hidden)
         {
             mainCamera.enabled = false;
             closetCamera.enabled = true;

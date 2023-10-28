@@ -1249,6 +1249,8 @@ GameObject:
   - component: {fileID: 5885216827943657505}
   - component: {fileID: 135756642000475821}
   - component: {fileID: 8401621567060919300}
+  - component: {fileID: 1367523553036987054}
+  - component: {fileID: 7082616218785538373}
   - component: {fileID: 4416926081852918493}
   m_Layer: 8
   m_Name: PlayerArmature
@@ -1417,8 +1419,38 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _interaction_Ui: {fileID: 555411865708890880}
+  interact: 0
   _numfound: 0
-  holdArea: {fileID: 4960359604131430947}
+  playerHide: {fileID: 0}
+  playerPickUpInteraction: {fileID: 0}
+--- !u!114 &1367523553036987054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926081852918481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e783664cf3c3c434090bd65aef19b14b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hide: 0
+  skinnedMesh: {fileID: 5597113867290821413}
+--- !u!114 &7082616218785538373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926081852918481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb16c2a13dd90cc40ac82edf3d20d6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdArea: {fileID: 0}
+  holdAreaRadius: 5
   pickupRange: 5
   pickupForce: 150
 --- !u!114 &4416926081852918493
