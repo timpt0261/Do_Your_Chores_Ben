@@ -6,41 +6,18 @@ public class CoverObject : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
-
-    [SerializeField] private Camera mainCamera;
-    [SerializeField] private Camera closetCamera;
-
-    private void Start()
-    {
-        mainCamera.enabled = true;
-        closetCamera.enabled = false;
-        
-    }
-
+    public GameObject cameraInCloset;
 
     public bool Interact(Interactor interactor)
     {
-        Debug.Log("SetUp Hiding");
-
-        SetUpCoverObj(interactor);
-
+       /* // Enable the event in the interact method
+        if (HidingManager.OnHidingStateChanged != null)
+        {
+            HidingManager.OnHidingStateChanged(cameraInCloset);
+        }
+*/
+        Debug.Log(this.name);
+        Debug.Log("Hiding");
         return true;
-    }
-
-    private void SetUpCoverObj(Interactor interactor)
-    {
-        if (interactor.Hide)
-        {
-            mainCamera.enabled = false;
-            closetCamera.enabled = true;
-           
-        }
-        else
-        {
-            mainCamera.enabled = true;
-            closetCamera.enabled = false;
-           
-
-        }
     }
 }
