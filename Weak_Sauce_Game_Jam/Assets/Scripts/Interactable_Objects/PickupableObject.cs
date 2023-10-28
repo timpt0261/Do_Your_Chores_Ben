@@ -2,18 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chore : MonoBehaviour, IInteractable
+public class PickupableObject : MonoBehaviour, IInteractable
 {
     [TextArea(minLines: 0, maxLines: 1)]
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
-
-    private void Awake()
-    {
-        
-        
-    }
-
 
     public bool Interact(Interactor interactor)
     {
@@ -21,6 +14,4 @@ public class Chore : MonoBehaviour, IInteractable
         //Debug.Log("Interacting");
         return true;
     }
-
-   
 }
