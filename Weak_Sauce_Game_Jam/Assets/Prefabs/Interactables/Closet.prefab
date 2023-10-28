@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3046358035668543236}
   - component: {fileID: 7318248255904186073}
   - component: {fileID: 470091706504656691}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: closet_camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8063804700594164993}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!20 &3046358035668543236
 Camera:
@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8063804700594164993}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Closet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,16 +143,16 @@ Transform:
   m_GameObject: {fileID: 5933682959102316733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7313850510885773543}
+  - {fileID: 7311061993925761317}
   - {fileID: 543702093957558730}
-  - {fileID: 1790583151265099888}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6153755925391163334
+--- !u!1 &6240946749873702075
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,29 +160,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1790583151265099888}
+  - component: {fileID: 7311061993925761317}
+  - component: {fileID: 1455115778475597436}
   m_Layer: 0
-  m_Name: closet_last_postion
+  m_Name: closet_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1790583151265099888
+--- !u!4 &7311061993925761317
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6153755925391163334}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.738, y: -2.475, z: 0}
+  m_GameObject: {fileID: 6240946749873702075}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.04, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8063804700594164993}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1455115778475597436
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240946749873702075}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.48, y: 5.42, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8222227935491030422
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,10 +209,9 @@ GameObject:
   - component: {fileID: 2509340231457373860}
   - component: {fileID: 6474785562058124333}
   - component: {fileID: 6491870409693425030}
-  - component: {fileID: 7820769452887217330}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: closet_mesh
-  m_TagString: SafeSpots
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,8 +224,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8222227935491030422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5786, y: -0.0576, z: 0}
-  m_LocalScale: {x: 2.4872332, y: 5.448042, z: 3.52}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.33, y: 5.5632, z: 3.52}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8063804700594164993}
@@ -281,18 +294,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7820769452887217330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8222227935491030422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e014ef469f38645be87d105dc9902a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prompt: Hide
-  mainCamera: {fileID: 0}
-  closetCamera: {fileID: 0}

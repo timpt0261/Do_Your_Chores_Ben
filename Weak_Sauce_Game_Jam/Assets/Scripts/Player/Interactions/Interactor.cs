@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,15 +11,8 @@ public class Interactor : MonoBehaviour
     [SerializeField] private LayerMask _interactableMask;
     [SerializeField] private Interaction_UI _interaction_Ui;
 
-    [SerializeField] private bool _hide = false;
-    private CharacterController _characterController;
-    private Animator _animator;
-    [SerializeField]
-    private SkinnedMeshRenderer skinnedMesh;
+    public bool interact;
 
-    [SerializeField] private bool interact;
-
-    public bool Hide { get { return _hide; } set { _hide = value; } }
     public bool Interact { get { return interact; } }
 
     private readonly Collider[] _colliders = new Collider[3];
@@ -46,14 +38,6 @@ public class Interactor : MonoBehaviour
     {
         interact = newInteractState;
     }
-
-    private void Start()
-    {
-        _characterController = GetComponent<CharacterController>();
-        _animator = GetComponent<Animator>();
-        
-    }
-
     private void Update()
     {
         _numfound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
@@ -66,16 +50,13 @@ public class Interactor : MonoBehaviour
             if (_interactable != null)
             {
                 if (!_interaction_Ui.IsDisplayed) _interaction_Ui.SetUp(_interactable.InteractionPrompt);
+                Debug.Log(interact);
                 if (interact)
                 {
-                    HandleInteractable(_interactable, _interactable_Obj);
-                }
-                else
-                {
-                    _hide = false;
                     _interactable.Interact(this);
+                    HandlePickUp(_interactable_Obj);
                 }
-
+ 
             }
 
         }
@@ -85,46 +66,10 @@ public class Interactor : MonoBehaviour
             if (_interaction_Ui.IsDisplayed) _interaction_Ui.Close();
         }
 
-        HandleHidingPlayer(_interactable_Obj);
         HandlePickUp(heldObject);
-
-    }
-
-    private void HandleInteractable(IInteractable interactable, GameObject interactable_Obj)
-    {
-        Debug.Log(interactable_Obj.tag);
-        _interactable.Interact(this);
-        switch (interactable_Obj.tag) {
-            case "Toys":
-                HandlePickUp(interactable_Obj);
-                break;
-            case "SafeSpots":
-                _hide = true;
-                HandleHidingPlayer(interactable_Obj);
-                break;
-        }
-        Debug.Log("Hide " + _hide);
-        return;
-    }
-
-    private void HandleHidingPlayer(GameObject interactable_Obj)
-    {
-        if (_hide)
-        {
-            _characterController.enabled = false;
-            _animator.enabled = false;
-            skinnedMesh.enabled = false;
-
-        }
-        else {
-            _characterController.enabled = true;
-            _animator.enabled = true;
-            skinnedMesh.enabled = true;
-            
-        }
-        return;
         
     }
+
 
     private void OnDrawGizmos()
     {
@@ -139,18 +84,24 @@ public class Interactor : MonoBehaviour
 
     public void HandlePickUp(GameObject pickObj)
     {
+        Debug.Log("Handle Pick Up called");
         if (heldObject == null)
+        {
             PickUpObject(pickObj);
+        }
         else
+        {
             DropObject();
-        
+        }
         if (heldObject != null)
+        {
             MoveObject();
-        
+        }
     }
 
     private void MoveObject()
     {
+        Debug.Log("Move Object called");
         if (Vector3.Distance(heldObject.transform.position, holdArea.position) > 0.1f)
         {
             Vector3 moveDirection = (holdArea.position - heldObject.transform.position);
@@ -160,6 +111,8 @@ public class Interactor : MonoBehaviour
 
     private void PickUpObject(GameObject pickObj)
     {
+        Debug.Log(pickObj.name);
+        Debug.Log("Pick Up Object called");
         Rigidbody pickObjRB = pickObj.GetComponent<Rigidbody>();
         if (pickObjRB)
         {
