@@ -8,18 +8,15 @@ namespace StarterAssets
 	public class StarterAssetsInputs : MonoBehaviour
 	{
 		[Header("Character Input Values")]
+		[SerializeField]
 		public Vector2 move;
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
 
 		// Custom interaction for player : Reuben Chavez
-		[SerializeField]
-		private bool interact;
-		[SerializeField]
-		private bool inventory;
-		[SerializeField]
-		private bool attack;
+		public bool interact;
+
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -44,6 +41,7 @@ namespace StarterAssets
 
 		public void OnJump(InputAction.CallbackContext value)
 		{
+			Debug.Log("On Jump " + value);
 			JumpInput(value.action.triggered);
 		}
 
@@ -51,6 +49,14 @@ namespace StarterAssets
 		{
 			SprintInput(value.ReadValue<float>() == 1);
 		}
+
+		public void OnInteract(InputAction.CallbackContext value)
+		{
+			Debug.Log("OnInteract " + value);
+			InteractInput(value.action.triggered);
+
+		}
+
 
 #endif
 		public void MoveInput(Vector2 newMoveDirection)
@@ -71,6 +77,13 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+		}
+
+	
+
+		public void InteractInput(bool newInteractState)
+		{
+			interact = newInteractState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

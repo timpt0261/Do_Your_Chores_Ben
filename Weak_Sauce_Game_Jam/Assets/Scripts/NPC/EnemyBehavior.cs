@@ -8,7 +8,8 @@ public class EnemyBehavior : MonoBehaviour
     public LayerMask playerLayer; // Layer that the player is on
     private SphereCollider _detection;
     private NavMeshAgent agent;
-    private Transform player;
+    [SerializeField] private Transform player;
+    [SerializeField] private HideInteraction hideInteraction;
     private bool isPlayerHidden;
 
     private void Awake()
