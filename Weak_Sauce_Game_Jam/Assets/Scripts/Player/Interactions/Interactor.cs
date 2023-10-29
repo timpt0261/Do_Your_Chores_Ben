@@ -1,25 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Interactor : MonoBehaviour
 {
-    private InputAction actions;
+    private StarterAssets.StarterAssetsInputs inputs;
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
     [SerializeField] private LayerMask _interactableMask;
     [SerializeField] private Interaction_UI _interaction_Ui;
-
-    [SerializeField] private bool interact;
-    public bool Interact { get { return interact; } }
 
     private readonly Collider[] _colliders = new Collider[3];
     [SerializeField] private int _numfound;
 
     private IInteractable _interactable;
     private GameObject _interactable_Obj;
+
     [HideInInspector]
     public HideInteraction playerHide;
     private PickUpInteraction playerPickUpInteraction;
@@ -27,20 +21,9 @@ public class Interactor : MonoBehaviour
 
     private void Start()
     {
+        inputs = GetComponent<StarterAssets.StarterAssetsInputs>();
         playerHide = GetComponent<HideInteraction>();
         playerPickUpInteraction = GetComponent<PickUpInteraction>();
-    }
-
-    // Callback Event that takes mapped inoput for input
-    public void OnInteract(InputAction.CallbackContext value)
-    {
-        InteractInput(value.action.triggered);
-
-    }
-
-    public void InteractInput(bool newInteractState)
-    {
-        interact = newInteractState;
     }
 
   
@@ -57,7 +40,7 @@ public class Interactor : MonoBehaviour
             if (_interactable != null)
             {
                 if (!_interaction_Ui.IsDisplayed) _interaction_Ui.SetUp(_interactable.InteractionPrompt);
-                if (interact)
+                if (inputs.interact)
                 {
                     HandleInteractable(_interactable, _interactable_Obj);
                 }
