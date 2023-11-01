@@ -21,8 +21,19 @@ public class TimerProgressBar : MonoBehaviour
         if (isActive)
         {
             currTimer -= Time.deltaTime;
-            timerProgress.fillAmount = (currTimer / maxTimer);
+            float currFill = currTimer / maxTimer;
+            timerProgress.fillAmount = currFill;
 
+            if(currFill == 0)
+            {
+                Debug.Log(" In Phase 3");
+            } else if (currFill <= 0.33)
+            {
+                Debug.Log(" In Phase 2");
+            } else if (currFill <= 0.66)
+            {
+                Debug.Log("In Phase 1");
+            }
             if(currTimer <= 0)
             {
                 StopCountdown();

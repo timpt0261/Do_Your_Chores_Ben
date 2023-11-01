@@ -10,21 +10,23 @@ public class TimerManager : MonoBehaviour
 
     private void Awake()
     {
-        StartEnergizedEffect(timerLength);
+        StartTimerEffect(timerLength);
     }
 
-    public void StartEnergizedEffect(float duration)
+    public void StartTimerEffect(float duration)
     {
         isActive = true;
         timerBar.SetActive(true);
         timerBar.transform.Find("ProgressBar").GetComponent<TimerProgressBar>().ActivateCountdown(duration);
-        StartCoroutine(EndEnergizedEffect(duration));
+        //StartCoroutine(EndTimerEffect(duration));
     }
 
-    IEnumerator EndEnergizedEffect(float duration)
+    /*
+    IEnumerator EndTimerEffect(float duration)
     {
         yield return new WaitForSeconds(duration);
-        Debug.Log("Baby's here!");
-        StartEnergizedEffect(duration);
+        Debug.Log("Timer ended");
+        //StartTimerEffect(duration);
     }
+    */
 }
