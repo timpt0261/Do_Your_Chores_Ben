@@ -16,14 +16,14 @@ public class Interactor : MonoBehaviour
 
     [HideInInspector]
     public HideInteraction playerHide;
-    private PickUpInteraction playerPickUpInteraction;
+    private PickUpInteraction _playerPickUpInteraction;
     
 
     private void Start()
     {
         inputs = GetComponent<StarterAssets.StarterAssetsInputs>();
         playerHide = GetComponent<HideInteraction>();
-        playerPickUpInteraction = GetComponent<PickUpInteraction>();
+        _playerPickUpInteraction = GetComponent<PickUpInteraction>();
     }
 
   
@@ -60,17 +60,16 @@ public class Interactor : MonoBehaviour
         }
 
         playerHide.HandleHidingPlayer();
-        playerPickUpInteraction.HandlePickUp();
+        _playerPickUpInteraction.HandlePickUp();
 
     }
 
     private void HandleInteractable(IInteractable interactable, GameObject interactable_Obj)
     {
-        Debug.Log(interactable_Obj.tag);
         _interactable.Interact(this);
         switch (interactable_Obj.tag) {
             case "Toys":
-                playerPickUpInteraction.HandlePickUp(interactable_Obj);
+                _playerPickUpInteraction.HandlePickUp(interactable_Obj);
                 break;
             case "SafeSpots":
                 playerHide.Hidden = true;

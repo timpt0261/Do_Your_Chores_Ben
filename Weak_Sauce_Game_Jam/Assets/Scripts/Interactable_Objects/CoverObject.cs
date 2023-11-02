@@ -20,10 +20,7 @@ public class CoverObject : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        Debug.Log("SetUp Hiding");
-
         SetUpCoverObj(interactor);
-
         return true;
     }
 

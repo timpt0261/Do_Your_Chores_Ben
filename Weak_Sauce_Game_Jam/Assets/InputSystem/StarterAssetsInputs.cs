@@ -41,7 +41,6 @@ namespace StarterAssets
 
 		public void OnJump(InputAction.CallbackContext value)
 		{
-			Debug.Log("On Jump " + value);
 			JumpInput(value.action.triggered);
 		}
 
@@ -52,7 +51,6 @@ namespace StarterAssets
 
 		public void OnInteract(InputAction.CallbackContext value)
 		{
-			Debug.Log("OnInteract " + value);
 			InteractInput(value.action.triggered);
 
 		}

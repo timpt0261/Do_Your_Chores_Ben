@@ -8,7 +8,7 @@ public class HideInteraction: MonoBehaviour
     private CharacterController _characterController;
     private Animator _animator;
     [SerializeField]
-    private SkinnedMeshRenderer skinnedMesh;
+    private SkinnedMeshRenderer _skinnedMesh;
     public bool Hidden { get { return _hide; } set { _hide = value; } }
 
     private void Awake()
@@ -17,20 +17,22 @@ public class HideInteraction: MonoBehaviour
         _animator = GetComponent<Animator>();
 
     }
+    /* Note: Uncommenting the Character controller will still make the player hide, 
+     * but will make it difficult to debug to see is the enemy is able to detect the player to begin with */
    public void HandleHidingPlayer()
     {
         if (_hide)
         {
-            _characterController.enabled = false;
+            /*_characterController.enabled = false;*/
             _animator.enabled = false;
-            skinnedMesh.enabled = false;
+            _skinnedMesh.enabled = false;
 
         }
         else
         {
-            _characterController.enabled = true;
+            /*_characterController.enabled = true;*/
             _animator.enabled = true;
-            skinnedMesh.enabled = true;
+            _skinnedMesh.enabled = true;
 
         }
         return;

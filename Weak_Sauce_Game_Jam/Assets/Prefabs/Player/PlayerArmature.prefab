@@ -1396,8 +1396,6 @@ MonoBehaviour:
   jump: 0
   sprint: 0
   interact: 0
-  inventory: 0
-  attack: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -1419,10 +1417,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _interaction_Ui: {fileID: 555411865708890880}
-  interact: 0
   _numfound: 0
   playerHide: {fileID: 0}
-  playerPickUpInteraction: {fileID: 0}
 --- !u!114 &1367523553036987054
 MonoBehaviour:
   m_ObjectHideFlags: 0
