@@ -8,9 +8,10 @@ public class PickUpInteraction : MonoBehaviour
     [SerializeField] float holdAreaRadius = 5.0f;
     private GameObject heldObject = null;
     private Rigidbody heldObjectRigidbody = null;
-    [SerializeField] private float pickupRange = 5.0f;
+    private CharacterController heldObjectController = null;
     [SerializeField] private float pickupForce = 150.0f;
-    public void HandlePickUp(GameObject pickObj=null)
+
+    public void HandlePickUp(GameObject pickObj = null)
     {
         if (heldObject == null)
             PickUpObject(pickObj);
@@ -19,21 +20,30 @@ public class PickUpInteraction : MonoBehaviour
 
         if (heldObject != null)
             MoveObject();
-
     }
 
     public void MoveObject()
     {
-        if (Vector3.Distance(heldObject.transform.position, holdArea.position) > 0.1f)
+        if (heldObjectRigidbody != null)
+        {
+            if (Vector3.Distance(heldObject.transform.position, holdArea.position) > 0.1f)
+            {
+                Vector3 moveDirection = (holdArea.position - heldObject.transform.position);
+                heldObjectRigidbody.AddForce(moveDirection * pickupForce);
+            }
+        }
+        else if (heldObjectController != null)
         {
             Vector3 moveDirection = (holdArea.position - heldObject.transform.position);
-            heldObjectRigidbody.AddForce(moveDirection * pickupForce);
+            heldObjectController.Move(moveDirection * Time.deltaTime); // Adjust speed based on Time.deltaTime
         }
     }
 
     public void PickUpObject(GameObject pickObj)
     {
         Rigidbody pickObjRB = pickObj.GetComponent<Rigidbody>();
+        CharacterController pickObjController = pickObj.GetComponent<CharacterController>();
+
         if (pickObjRB)
         {
             heldObjectRigidbody = pickObjRB;
@@ -44,15 +54,29 @@ public class PickUpInteraction : MonoBehaviour
             heldObjectRigidbody.transform.parent = holdArea;
             heldObject = pickObj;
         }
+        else if (pickObjController)
+        {
+            heldObjectController = pickObjController;
+            heldObjectController.enabled = false; // Disable the CharacterController to 'pick up'
+            heldObject = pickObj;
+        }
     }
 
     public void DropObject()
     {
-        heldObjectRigidbody.useGravity = true;
-        heldObjectRigidbody.drag = 1;
-        heldObjectRigidbody.constraints = RigidbodyConstraints.None;
-        heldObjectRigidbody.transform.parent = null;
-        heldObject = null;
+        if (heldObjectRigidbody != null)
+        {
+            heldObjectRigidbody.useGravity = true;
+            heldObjectRigidbody.drag = 1;
+            heldObjectRigidbody.constraints = RigidbodyConstraints.None;
+            heldObjectRigidbody.transform.parent = null;
+            heldObject = null;
+        }
+        else if (heldObjectController != null)
+        {
+            heldObjectController.enabled = true; // Re-enable the CharacterController to 'drop'
+            heldObject = null;
+        }
     }
 
     private void OnDrawGizmos()
@@ -60,5 +84,4 @@ public class PickUpInteraction : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(holdArea.position, holdAreaRadius);
     }
-
 }
