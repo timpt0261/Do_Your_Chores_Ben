@@ -8,6 +8,8 @@ TagManager:
   - ObjectiveZone
   - SafeSpots
   - Toys
+  - Interactable
+  - Enemy
   layers:
   - Default
   - TransparentFX
