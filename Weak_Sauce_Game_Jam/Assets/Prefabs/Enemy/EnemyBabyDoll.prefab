@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hideInteraction: {fileID: 0}
+  _enemy: {fileID: 0}
 --- !u!1 &7932407099375209335
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +197,7 @@ GameObject:
   - component: {fileID: 3472729955618719976}
   - component: {fileID: 2790273408486498970}
   - component: {fileID: 6461510689442834116}
-  - component: {fileID: 1077047073111425963}
+  - component: {fileID: 5611948295519429188}
   m_Layer: 0
   m_Name: EnemyBabyDoll
   m_TagString: Untagged
@@ -327,7 +328,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1077047073111425963
+--- !u!114 &5611948295519429188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,15 +337,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9222025613874093418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a11ada265805cee4b90423b7e2da71e7, type: 3}
+  m_Script: {fileID: 11500000, guid: d1a11460bf89fcc409777e9e9b2aea8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
   <EnemyTransform>k__BackingField: {fileID: 0}
   <CurrentWaypoint>k__BackingField: 0
-  <WayPoints>k__BackingField:
-  - {fileID: 0}
-  - {fileID: 0}
+  <WayPoints>k__BackingField: []
   <agent>k__BackingField: {fileID: 0}
   timeInIdleState: 90
   _idleTransform: {fileID: 0}

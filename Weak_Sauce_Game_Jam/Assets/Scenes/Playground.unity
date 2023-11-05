@@ -257,7 +257,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _enemy
       value: 
-      objectReference: {fileID: 1736133397}
+      objectReference: {fileID: 0}
     - target: {fileID: 966790638851008692, guid: e20031c3d1820654b9d6441139a5bb14,
         type: 3}
       propertyPath: _playerHide
@@ -433,11 +433,51 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5611948295519429188, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: _idleTransform
+      value: 
+      objectReference: {fileID: 1122285747}
+    - target: {fileID: 5611948295519429188, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: timeInIdleState
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611948295519429188, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: pickUpInteraction
+      value: 
+      objectReference: {fileID: 1736133396}
+    - target: {fileID: 5611948295519429188, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: timeinSearchState
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611948295519429188, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: <agent>k__BackingField
+      value: 
+      objectReference: {fileID: 513020286}
+    - target: {fileID: 5611948295519429188, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: <WayPoints>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611948295519429188, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: <WayPoints>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 2000867019}
+    - target: {fileID: 5611948295519429188, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: <WayPoints>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: 1099895210}
     - target: {fileID: 6648769518095343867, guid: e20031c3d1820654b9d6441139a5bb14,
         type: 3}
       propertyPath: _enemy
       value: 
-      objectReference: {fileID: 1736133397}
+      objectReference: {fileID: 0}
     - target: {fileID: 6648769518095343867, guid: e20031c3d1820654b9d6441139a5bb14,
         type: 3}
       propertyPath: _playerHide
@@ -1721,18 +1761,6 @@ MonoBehaviour:
   holdArea: {fileID: 1879130443}
   holdAreaRadius: 0.82
   pickupForce: 150
---- !u!114 &1736133397 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1077047073111425963, guid: e20031c3d1820654b9d6441139a5bb14,
-    type: 3}
-  m_PrefabInstance: {fileID: 513020285}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736133389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a11ada265805cee4b90423b7e2da71e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1762682258
 PrefabInstance:
   m_ObjectHideFlags: 0
