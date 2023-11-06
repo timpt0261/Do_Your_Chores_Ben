@@ -11,25 +11,21 @@ public class EnemyStateMachine
     private enum States { IDLE, SEARCH, CHASE, ATTACK }
     private States currentState { get; set; }
 
-    #region Idel Lables
+    // Idle Lables
     private bool _idleTimerIsRunning = false;
     private float _timeInIdleState; // Initalizes Time the Enemy stays in Idle
-    #endregion
 
-    #region Search Lables
+    // Search Lables
     private float _movementSpeed;
     private float _timeInSearchState;
     private bool _searchTimerIsRunning = false;
-    
-    #endregion
 
-    #region Search Lables 
+     // Search Lables 
     private float _chaseSpeed = 4.5f;
-    #endregion
 
-    #region Attack Lables
+    // Attack Lables
     PickUpInteraction _pickUpInteraction;
-    #endregion
+    
     public EnemyStateMachine(Enemy enemy)
     {
         _enemy = enemy;
@@ -98,7 +94,7 @@ public class EnemyStateMachine
         }
     }
 
-    public virtual void FrameUpdate()
+    public void FrameUpdate()
     {
         if (_searchTimerIsRunning) {
             if (_timeInSearchState > 0)
@@ -124,7 +120,7 @@ public class EnemyStateMachine
                 break;
             case States.SEARCH:
                 Debug.Log("Current State Search");
-                HandleSearhFrameUpdate();
+                HandleSearchFrameUpdate();
                 break;
             case States.CHASE:
                 Debug.Log("Current State Chase");
@@ -140,7 +136,7 @@ public class EnemyStateMachine
     }
 
 
-    public virtual void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
+    public  void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
 
 
@@ -163,22 +159,22 @@ public class EnemyStateMachine
                 _timeInIdleState = 90;
                 _idleTimerIsRunning = false;
                 Debug.Log("Change to Search State");
-                NextState();
+                ChangeState(State.SEARCH);
 
             }
 
         }
     }
 
-    private void HandleSearhFrameUpdate()
+    private void HandleSearchFrameUpdate()
     {
         if (!_searchTimerIsRunning)
         {
-            SetState(States.IDLE);
+            ChangeState(States.IDLE);
         }
         if (_enemy.IsAgrroed)
         {
-           NextState();
+           ChangeState(State.CHASE);
         }
         else
         {
@@ -191,70 +187,29 @@ public class EnemyStateMachine
     {
         if (!_searchTimerIsRunning)
         {
-            SetState(States.IDLE);
+            ChangeState(States.IDLE);
         }
         if (!_enemy.IsAgrroed)
         {
-            PreviousState();
+            ChangeState(State.SEARCH);
         }
 
         /*if (_enemy.IsStriking)
         {
-           this.NextState();
+           this.ChangeState(State.ATTACK);
         }*/
         var  _newChaseSpeed = _chaseSpeed + (.45f * (Time.deltaTime / 10));
         _enemy.SetSpeed(_newChaseSpeed);
         _enemy.SetDestination(_playerTarget.transform.position, true);
     }
     #endregion
-
-    private void NextState()
-    {
-        ExitState();
-        switch (currentState)
-        {
-            case States.IDLE:
-                currentState = States.SEARCH;
-                break;
-            case States.SEARCH:
-                currentState = States.CHASE;
-                break;
-            case States.CHASE:
-                currentState = States.ATTACK;
-                break;
-            case States.ATTACK:
-
-                break;
-            default:
-                break;
-        }
-        EnterState();
-    }
-
-    private void PreviousState()
-    {
-        ExitState();
-        switch (currentState)
-        {
-            case States.IDLE:
-                break;
-            case States.SEARCH:
-                currentState = States.IDLE;
-                break;
-            case States.CHASE:
-                currentState = States.SEARCH;
-                break;
-            case States.ATTACK:
-                currentState = States.SEARCH;
-                break;
-            default:
-                break;
-        }
-        EnterState();
-    }
-    private void SetState(States newstate) {
-        currentState = newstate;
-    }
+     
+   private void ChangeState(States newState){
+     ExitState();
+     currentState = newState;
+     EnterState();
+   }
+  
     private void DisplayTime(float timeInIdleState)
     {
         float minutes = Mathf.FloorToInt(timeInIdleState / 60);
