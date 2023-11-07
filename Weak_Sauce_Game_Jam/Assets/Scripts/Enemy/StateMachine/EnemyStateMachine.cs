@@ -96,22 +96,6 @@ public class EnemyStateMachine
 
     public void FrameUpdate()
     {
-        if (_searchTimerIsRunning) {
-            if (_timeInSearchState > 0)
-            {
-                _timeInSearchState -= Time.deltaTime;
-                DisplayTime(_timeInSearchState);
-            }
-            else
-            {
-                Debug.Log("End Of Chase to Idle State");
-                _timeInSearchState = 90;
-                _searchTimerIsRunning = false;
-                
-                
-
-            }
-        }
         switch (currentState)
         {
             case States.IDLE:
@@ -159,7 +143,7 @@ public class EnemyStateMachine
                 _timeInIdleState = 90;
                 _idleTimerIsRunning = false;
                 Debug.Log("Change to Search State");
-                ChangeState(State.SEARCH);
+                ChangeState(States.SEARCH);
 
             }
 
@@ -168,30 +152,20 @@ public class EnemyStateMachine
 
     private void HandleSearchFrameUpdate()
     {
-        if (!_searchTimerIsRunning)
-        {
-            ChangeState(States.IDLE);
-        }
         if (_enemy.IsAgrroed)
         {
-           ChangeState(State.CHASE);
+           ChangeState(States.CHASE);
         }
-        else
-        {
-            _enemy.NextDestination();
 
-        }
+        _enemy.NextDestination();
     }
 
     private void HandleChaseFrameUpdate()
     {
-        if (!_searchTimerIsRunning)
-        {
-            ChangeState(States.IDLE);
-        }
+        
         if (!_enemy.IsAgrroed)
         {
-            ChangeState(State.SEARCH);
+            ChangeState(States.SEARCH);
         }
 
         /*if (_enemy.IsStriking)
