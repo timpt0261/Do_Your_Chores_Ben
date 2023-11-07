@@ -1,42 +1,67 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class HideInteraction: MonoBehaviour
+using UnityEngine.InputSystem;
+using TMPro;
+public class HideInteraction : MonoBehaviour
 {
     [SerializeField] private bool _hide = false;
-    private CharacterController _characterController;
+    [SerializeField] private SkinnedMeshRenderer _skinnedMesh;
     private Animator _animator;
-    [SerializeField]
-    private SkinnedMeshRenderer _skinnedMesh;
-    public bool Hidden { get { return _hide; } set { _hide = value; } }
+    private PlayerInput _playerInput;
+    private Canvas _canvas;
+
+    private const string playerActionMap = "Player";
+    private const string movementActionName = "Move";
+
+    public bool Hidden
+    {
+        get => _hide;
+        set
+        {
+            _hide = value;
+            HandleHidingPlayer();
+        }
+    }
 
     private void Awake()
     {
-        _characterController = GetComponent<CharacterController>();
+        _playerInput = GetComponent<PlayerInput>();
         _animator = GetComponent<Animator>();
-
+        _canvas = GetComponentInChildren<Canvas>();
     }
-    /* Note: Uncommenting the Character controller will still make the player hide, 
-     * but will make it difficult to debug to see is the enemy is able to detect the player to begin with */
-   public void HandleHidingPlayer()
-    {
-        if (_hide)
-        {
-            /*_characterController.enabled = false;*/
-            _animator.enabled = false;
-            _skinnedMesh.enabled = false;
 
+    public void HandleHidingPlayer()
+    {
+        SetPlayerMovement(!_hide);
+        _animator.enabled = !_hide;
+        _skinnedMesh.enabled = !_hide;
+        _canvas.enabled = !_hide;
+    }
+
+    private void SetPlayerMovement(bool enableMovement)
+    {
+        InputActionMap actionMap = _playerInput.actions.FindActionMap(playerActionMap);
+
+        if (actionMap == null)
+        {
+            Debug.LogWarning("Action Map 'Player' not found.");
+            return;
+        }
+
+        InputAction movementAction = actionMap.FindAction(movementActionName);
+
+        if (movementAction == null)
+        {
+            Debug.LogWarning("Movement action not found.");
+            return;
+        }
+
+        if (enableMovement)
+        {
+            movementAction.Enable();
         }
         else
         {
-            /*_characterController.enabled = true;*/
-            _animator.enabled = true;
-            _skinnedMesh.enabled = true;
-
+            movementAction.Disable();
         }
-        return;
-
     }
-
 }

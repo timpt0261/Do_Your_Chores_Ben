@@ -12,6 +12,7 @@ public class CoverObject : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        closetCamera = GetComponentInChildren<Camera>();
         mainCamera.enabled = true;
         closetCamera.enabled = false;
         
