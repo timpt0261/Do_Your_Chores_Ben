@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - ObjectiveZone
+  - SafeSpots
+  - Toys
+  - Interactable
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,7 +18,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Interactable
   - Character
   - Ground
   - 
