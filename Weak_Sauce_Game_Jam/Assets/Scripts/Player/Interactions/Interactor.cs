@@ -85,7 +85,7 @@ public class Interactor : MonoBehaviour
 
     public void HandlePickUp(GameObject pickObj)
     {
-        Debug.Log("Handle Pick Up called");
+        //Debug.Log("Handle Pick Up called");
         if (heldObject == null)
         {
             PickUpObject(pickObj);

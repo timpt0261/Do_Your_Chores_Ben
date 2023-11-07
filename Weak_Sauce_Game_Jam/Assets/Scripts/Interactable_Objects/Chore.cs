@@ -17,8 +17,8 @@ public class Chore : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        Debug.Log(this.name);
-        Debug.Log("Interacting");
+        //Debug.Log(this.name);
+        //Debug.Log("Interacting");
         return true;
     }
 
