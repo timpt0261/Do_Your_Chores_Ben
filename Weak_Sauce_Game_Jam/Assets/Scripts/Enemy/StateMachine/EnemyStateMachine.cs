@@ -159,7 +159,7 @@ public class EnemyStateMachine
                 _timeInIdleState = 90;
                 _idleTimerIsRunning = false;
                 Debug.Log("Change to Search State");
-                ChangeState(States.SEARCH);
+                ChangeState(State.SEARCH);
 
             }
 
@@ -174,7 +174,7 @@ public class EnemyStateMachine
         }
         if (_enemy.IsAgrroed)
         {
-           ChangeState(States.CHASE);
+           ChangeState(State.CHASE);
         }
         else
         {
@@ -191,7 +191,7 @@ public class EnemyStateMachine
         }
         if (!_enemy.IsAgrroed)
         {
-            ChangeState(States.SEARCH);
+            ChangeState(State.SEARCH);
         }
 
         /*if (_enemy.IsStriking)
