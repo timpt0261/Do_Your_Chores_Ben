@@ -10,8 +10,6 @@ public class PickupableObject : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        //Debug.Log(this.name);
-        //Debug.Log("Interacting");
-        return true;
+       return true;
     }
 }
