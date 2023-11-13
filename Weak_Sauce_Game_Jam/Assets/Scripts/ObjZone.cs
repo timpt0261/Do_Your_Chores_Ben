@@ -20,7 +20,10 @@ public class ObjZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Player is in the objective zone");
+            //Debug.Log("Player is in the objective zone");
+        } else if (other.gameObject.tag == "Interactable")
+        {
+            ScoreManager.Instance.addScore();
         }
     }
 
@@ -28,7 +31,7 @@ public class ObjZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Player is in the objective zone");
+            //Debug.Log("Player is in the objective zone");
         }
     }
 
@@ -36,7 +39,12 @@ public class ObjZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Player has left the objective zone");
+            //Debug.Log("Player has left the objective zone");
+        }
+        else if (other.gameObject.tag == "Interactable")
+        {
+            ScoreManager.Instance.subtractScore();
         }
     }
+
 }
