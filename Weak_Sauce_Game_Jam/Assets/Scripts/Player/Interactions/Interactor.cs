@@ -40,6 +40,7 @@ public class Interactor : MonoBehaviour
             if (_interactable != null)
             {
                 if (!_interaction_Ui.IsDisplayed) _interaction_Ui.SetUp(_interactable.InteractionPrompt);
+
                 if (inputs.interact)
                 {
                     HandleInteractable(_interactable, _interactable_Obj);

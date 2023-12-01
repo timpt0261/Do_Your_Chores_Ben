@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ public class Enemy : MonoBehaviour, IDamagable, IEnemyMovable,ITriggerCheckable
     public bool IsAgrroed { get; set; }
     public bool IsStriking { get; set; }
 
-
+    [SerializeField] TimerManager timerManager;
     #region Idle Label
     public float timeInIdleState = 90; // in seconds
     [SerializeField] private Transform _idleTransform;
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour, IDamagable, IEnemyMovable,ITriggerCheckable
 
     #region Attack
     public PickUpInteraction pickUpInteraction;
+    
     #endregion
 
     #region State Machine
@@ -49,6 +51,7 @@ public class Enemy : MonoBehaviour, IDamagable, IEnemyMovable,ITriggerCheckable
         StateMachine.Initialize();
         pickUpInteraction = GetComponent<PickUpInteraction>();
     }
+
 
     private void Update()
     {
