@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyStateMachine
-{
- 
-
+{ 
     private Enemy _enemy;
     private GameObject _playerTarget;
     private enum States { IDLE, SEARCH, CHASE, ATTACK }
@@ -25,12 +24,12 @@ public class EnemyStateMachine
 
     // Attack Lables
     PickUpInteraction _pickUpInteraction;
-    
+
     public EnemyStateMachine(Enemy enemy)
     {
         _enemy = enemy;
         _playerTarget = GameObject.FindGameObjectWithTag("Player");
-
+        
         _movementSpeed = enemy.movementSpeed;
         _timeInIdleState = enemy.timeInIdleState;
 
@@ -48,7 +47,7 @@ public class EnemyStateMachine
     }
     public void EnterState()
     {
-        Debug.Log("Entering Next State");
+        /*Debug.Log("Entering Next State");*/
         switch (currentState)
         {
             case States.IDLE:
@@ -67,6 +66,7 @@ public class EnemyStateMachine
                 _enemy.SetDestination(_playerTarget.transform.position, true);
                 break;
             case States.ATTACK:
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 break;
             default:
                 break;
@@ -99,18 +99,20 @@ public class EnemyStateMachine
         switch (currentState)
         {
             case States.IDLE:
-                Debug.Log("Current State Idle");
+               /* Debug.Log("Current State Idle");*/
                 HandleIdleFrameUpdate();
                 break;
             case States.SEARCH:
-                Debug.Log("Current State Search");
+/*                Debug.Log("Current State Search");*/
                 HandleSearchFrameUpdate();
                 break;
             case States.CHASE:
-                Debug.Log("Current State Chase");
+/*                Debug.Log("Current State Chase");*/
                 HandleChaseFrameUpdate();
                 break;
             case States.ATTACK:
+/*                Debug.Log("Game Over");*/
+    
                 break;
             default:
                 break;
@@ -136,7 +138,7 @@ public class EnemyStateMachine
             if (_timeInIdleState > 0)
             {
                 _timeInIdleState -= Time.deltaTime;
-                DisplayTime(_timeInIdleState);
+                /*DisplayTime(_timeInIdleState);*/
             }
             else
             {
@@ -168,10 +170,10 @@ public class EnemyStateMachine
             ChangeState(States.SEARCH);
         }
 
-        /*if (_enemy.IsStriking)
+        if (_enemy.IsStriking)
         {
-           this.ChangeState(State.ATTACK);
-        }*/
+            this.ChangeState(States.ATTACK);
+        }
         var  _newChaseSpeed = _chaseSpeed + (.45f * (Time.deltaTime / 10));
         _enemy.SetSpeed(_newChaseSpeed);
         _enemy.SetDestination(_playerTarget.transform.position, true);
