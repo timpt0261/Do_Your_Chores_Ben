@@ -6,7 +6,10 @@ public class TimerManager : MonoBehaviour
 {
     public GameObject timerBar;
     public bool isActive;
-    public int timerLength = 10;
+
+    [SerializeField]
+    private int timerLength = 10;
+    public int TimerLength { get{ return timerLength; } set { timerLength = value; } }
 
     private void Awake()
     {

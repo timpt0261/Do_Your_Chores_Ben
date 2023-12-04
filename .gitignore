@@ -32,6 +32,7 @@
 
 # Visual Studio cache directory
 .vs/
+.vscode/
 
 # Gradle cache directory
 .gradle/
@@ -80,3 +81,5 @@ crashlytics-build.properties
 
 UserSettings/Layouts/default-*
 UserSettings/EditorUserSettings.asset
+Weak_Sauce_Game_Jam/UserSettings/Layouts/default-2021.dwlt
+Weak_Sauce_Game_Jam/UserSettings/EditorUserSettings.asset
