@@ -160,6 +160,12 @@ PrefabInstance:
       propertyPath: skinnedMesh
       value: 
       objectReference: {fileID: 24462729}
+    - target: {fileID: 3515744104526748763, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9005cc8ba576c6d45a1e4be77b6d3fac,
+        type: 3}
     - target: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544,
         type: 3}
       propertyPath: m_RootOrder
@@ -511,6 +517,18 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4924941447296144628, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9005cc8ba576c6d45a1e4be77b6d3fac,
+        type: 3}
+    - target: {fileID: 5597113867290821413, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5185183829469969408, guid: af40401f467480f4b8f1b439d06bde04,
+        type: 3}
     - target: {fileID: 5597113867290821413, guid: 64dce48905ffd9b4293e595fa6941544,
         type: 3}
       propertyPath: m_Enabled
@@ -2770,6 +2788,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Speed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2817774926632030556, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2817774926632030556, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2817774926632030556, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2817774926632030556, guid: e20031c3d1820654b9d6441139a5bb14,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2931320562805005670, guid: e20031c3d1820654b9d6441139a5bb14,
         type: 3}
