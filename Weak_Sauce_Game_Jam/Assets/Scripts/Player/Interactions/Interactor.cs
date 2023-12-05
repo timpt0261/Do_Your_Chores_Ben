@@ -6,7 +6,7 @@ public class Interactor : MonoBehaviour
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
     [SerializeField] private LayerMask _interactableMask;
-    [SerializeField] private Interaction_UI _interaction_Ui;
+    [SerializeField] private Interaction_UI _interaction_Ui = null;
 
     private readonly Collider[] _colliders = new Collider[3];
     [SerializeField] private int _numfound;

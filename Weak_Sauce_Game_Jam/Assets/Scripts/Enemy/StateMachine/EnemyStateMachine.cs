@@ -17,7 +17,7 @@ public class EnemyStateMachine
     // Search Lables
     private float _movementSpeed;
     private float _timeInSearchState;
-    private bool _searchTimerIsRunning = false;
+    //private bool _searchTimerIsRunning = false;
 
      // Search Lables 
     private float _chaseSpeed = 4.5f;
@@ -59,7 +59,6 @@ public class EnemyStateMachine
                 _enemy.SetSpeed(_movementSpeed);
                 _enemy.CurrentWaypoint = 0;
                 _enemy.SetDestination();
-                _searchTimerIsRunning = true;
                 break;
             case States.CHASE:
                 _enemy.SetSpeed(_chaseSpeed);
