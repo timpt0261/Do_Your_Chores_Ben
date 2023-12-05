@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class TimerProgressBar : MonoBehaviour
 {
     private bool isActive = false;
-    private float currTimer;
-    private float maxTimer;
+    [SerializeField] private float currTimer = 120;
+    [SerializeField] private float maxTimer = 120;
 
     private Image timerProgress;
 
@@ -31,15 +31,15 @@ public class TimerProgressBar : MonoBehaviour
             {
                 if (currFill <= 0.33)
                 {
-                    //Debug.Log(" In Phase 3");
+                    Debug.Log(" In Phase 3");
                 }
                 else if (currFill <= 0.66)
                 {
-                    //Debug.Log(" In Phase 2");
+                    Debug.Log(" In Phase 2");
                 }
                 else
                 {
-                    //Debug.Log(" In Phase 1");
+                    Debug.Log(" In Phase 1");
                 }
             }else
             {

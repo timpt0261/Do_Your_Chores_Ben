@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUpInteraction : MonoBehaviour
 {
-    [SerializeField] Transform holdArea;
+    [SerializeField] Transform holdArea = null;
     [SerializeField] float holdAreaRadius = 5.0f;
     private GameObject heldObject = null;
     private Rigidbody heldObjectRigidbody = null;
