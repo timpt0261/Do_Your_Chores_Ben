@@ -1525,6 +1525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6edd097d806350443ad166bfb9af35a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScore: 0
   scoreText: {fileID: 2139166806}
 --- !u!4 &1028664896
 Transform:
@@ -2798,7 +2799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -460, y: 258}
+  m_AnchoredPosition: {x: -388, y: 211}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2140833739
