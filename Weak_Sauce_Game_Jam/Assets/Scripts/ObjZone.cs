@@ -6,7 +6,7 @@ public class ObjZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Toy")
+        if (other.gameObject.tag == "Toys")
         {
             ScoreManager.Instance.addScore();
         }
@@ -14,7 +14,7 @@ public class ObjZone : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Toy")
+        if (other.gameObject.tag == "Toys")
         {
             ScoreManager.Instance.subtractScore();
         }
