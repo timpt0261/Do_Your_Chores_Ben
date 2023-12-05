@@ -21,21 +21,21 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-        scoreText.text = ("Score is: " + playerScore);
+        scoreText.text = ("Score: " + playerScore);
     }
-
+    [SerializeField]
     private int playerScore = 0;
     public TextMeshProUGUI scoreText;
 
     public void addScore(int scoreChange = 1)
     {
         playerScore += scoreChange;
-        scoreText.text = ("Score is: " + playerScore);
+        scoreText.text = ("Score: " + playerScore);
     }
 
     public void subtractScore(int scoreChange = 1)
     {
         playerScore -= scoreChange;
-        scoreText.text = ("Score is: " + playerScore);
+        scoreText.text = ("Score: " + playerScore);
     }
 }
