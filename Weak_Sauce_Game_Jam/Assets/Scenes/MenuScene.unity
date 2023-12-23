@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 345, y: 129}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 373, y: 174}
+  m_SizeDelta: {x: 141.8946, y: 119.6493}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &296350999
 Animator:
@@ -670,7 +670,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2072477416}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: playGame
+        m_MethodName: GoToBabyRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -919,7 +919,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2072477416}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: goToCredits
+        m_MethodName: GoToCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1759,7 +1759,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2072477416}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: exitGame
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

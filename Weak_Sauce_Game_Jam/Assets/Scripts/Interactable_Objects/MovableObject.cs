@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupableObject : MonoBehaviour, IInteractable
+public class MovableObject : MonoBehaviour, IInteractable
 {
     [TextArea(minLines: 0, maxLines: 1)]
     [SerializeField] private string _prompt;

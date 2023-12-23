@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoverObject : MonoBehaviour, IInteractable
+public class ConcealmentObject : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
@@ -41,4 +41,6 @@ public class CoverObject : MonoBehaviour, IInteractable
 
         }
     }
+
+   
 }

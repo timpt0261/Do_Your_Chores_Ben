@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18059473, g: 0.2260882, b: 0.3070941, a: 1}
+  m_IndirectSpecularColor: {r: 0.4469906, g: 0.49687988, b: 0.5750571, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -275,7 +275,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.735849, g: 0.2256141, b: 0.2256141, a: 0.39607844}
+  m_BackGroundColor: {r: 0.2924528, g: 0.2469295, b: 0.2469295, a: 0.39607844}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 220153438}
   - component: {fileID: 220153437}
   m_Layer: 5
-  m_Name: Restart
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,7 +393,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24, y: -48}
+  m_AnchoredPosition: {x: -215.4, y: -82.6}
   m_SizeDelta: {x: 180, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &220153437
@@ -441,8 +441,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1756602520}
-        m_TargetAssemblyTypeName: CreditsScript, Assembly-CSharp
-        m_MethodName: playGame
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: GoToMenuScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -660,7 +660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -88, y: -2}
+  m_AnchoredPosition: {x: -92.1, y: -19.3}
   m_SizeDelta: {x: -718.7999, y: -347.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &588685282
@@ -1039,7 +1039,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23, y: -140}
+  m_AnchoredPosition: {x: 127.7, y: -87.6}
   m_SizeDelta: {x: 160, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618636260
@@ -1087,8 +1087,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1756602520}
-        m_TargetAssemblyTypeName: CreditsScript, Assembly-CSharp
-        m_MethodName: exitGame
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1756602515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbac8f28f51dc28439c60de0c1e720d7, type: 3}
+  m_Script: {fileID: 11500000, guid: a39f40e6632675c4095f4258a0516f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1909768038

@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 public class HideInteraction : MonoBehaviour
 {
+    private StarterAssets.StarterAssetsInputs inputs;
     [SerializeField] private bool _hide = false;
     [SerializeField] private SkinnedMeshRenderer _skinnedMesh;
     private Animator _animator;
@@ -28,6 +29,8 @@ public class HideInteraction : MonoBehaviour
         _animator = GetComponent<Animator>();
         _canvas = GetComponentInChildren<Canvas>();
     }
+
+
 
     public void HandleHidingPlayer()
     {

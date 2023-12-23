@@ -65,7 +65,7 @@ public class EnemyStateMachine
                 _enemy.SetDestination(_playerTarget.transform.position, true);
                 break;
             case States.ATTACK:
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene("GameOverScene");
                 break;
             default:
                 break;

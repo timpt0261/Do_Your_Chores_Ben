@@ -6,7 +6,7 @@ public class PickUpInteraction : MonoBehaviour
 {
     [SerializeField] Transform holdArea = null;
     [SerializeField] float holdAreaRadius = 5.0f;
-    private GameObject heldObject = null;
+    [ SerializeField] private GameObject heldObject = null;
     private Rigidbody heldObjectRigidbody = null;
     private CharacterController heldObjectController = null;
     [SerializeField] private float pickupForce = 150.0f;
@@ -20,6 +20,10 @@ public class PickUpInteraction : MonoBehaviour
 
         if (heldObject != null)
             MoveObject();
+    }
+
+    public bool HasHeldObject() {
+        return heldObject;
     }
 
     public void MoveObject()
