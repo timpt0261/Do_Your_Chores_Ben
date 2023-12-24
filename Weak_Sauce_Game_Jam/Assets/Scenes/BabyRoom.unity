@@ -2278,7 +2278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1831065938
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3140,7 +3140,7 @@ PrefabInstance:
     - target: {fileID: 9222025613874093418, guid: e20031c3d1820654b9d6441139a5bb14,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9222025613874093418, guid: e20031c3d1820654b9d6441139a5bb14,
         type: 3}
@@ -4135,6 +4135,7 @@ GameObject:
   - component: {fileID: 1263336840216160631}
   - component: {fileID: 3921704402526625213}
   - component: {fileID: 3921704402526625214}
+  - component: {fileID: 3921704402526625215}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -4734,3 +4735,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &3921704402526625215
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273075762252545128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.025671417, y: 8.392206, z: 0.22067833}
+  m_Center: {x: -0.0053017465, y: -0.0000009536743, z: -0.110339165}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class ScoreManager : MonoBehaviour
@@ -37,5 +38,11 @@ public class ScoreManager : MonoBehaviour
     {
         playerScore -= scoreChange;
         scoreText.text = ("Score: " + playerScore);
+    }
+
+    public void Update()
+    {
+        if (playerScore == 10)
+            SceneManager.LoadScene("WinningScene");
     }
 }
