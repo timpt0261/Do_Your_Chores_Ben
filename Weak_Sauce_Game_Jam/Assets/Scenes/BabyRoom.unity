@@ -135,6 +135,16 @@ PrefabInstance:
       propertyPath: interact
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 135756642000475821, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      propertyPath: cursorLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135756642000475821, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      propertyPath: cursorInputForLook
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 555411865708890880, guid: 64dce48905ffd9b4293e595fa6941544,
         type: 3}
       propertyPath: m_Enabled
@@ -240,6 +250,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      propertyPath: JumpHeight
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544,
         type: 3}
@@ -4136,6 +4151,7 @@ GameObject:
   - component: {fileID: 3921704402526625213}
   - component: {fileID: 3921704402526625214}
   - component: {fileID: 3921704402526625215}
+  - component: {fileID: 3921704402526625216}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -4748,3 +4764,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.025671417, y: 8.392206, z: 0.22067833}
   m_Center: {x: -0.0053017465, y: -0.0000009536743, z: -0.110339165}
+--- !u!114 &3921704402526625216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273075762252545128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67c0738fae1d84449d2e3ab31a8f3ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnimator: {fileID: 3921704402526625214}

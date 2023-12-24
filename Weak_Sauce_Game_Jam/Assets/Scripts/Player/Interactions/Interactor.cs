@@ -33,76 +33,81 @@ public class Interactor : MonoBehaviour
         bool isPlayerHoldingObject = _playerPickUpInteraction.IsHoldingObject();
         /*Debug.Log("NumFound: " + _numfound + " Is Holding Object: "  + isPlayerHoldingObject );*/
 
-        if (_numfound == 0 && !isPlayerHoldingObject) {
-            if (_interactable != null) {
-                _interactable = null;
-               _interaction_Ui.Close(); 
-            }
+        if (_numfound == 0 && !isPlayerHoldingObject)
+        {
+            ClearInteract();
             return;
         }
 
-        if (_interactable == null && !isPlayerHoldingObject) {
-            _interactable = _colliders[0].GetComponent<IInteractable>();
-            _interactable_Obj = _colliders[0].gameObject;
-            if (!_interaction_Ui.IsDisplayed) _interaction_Ui.SetUp(_interactable.InteractionPrompt);
+        if (_interactable == null && !isPlayerHoldingObject)
+        {
+            SetInteractable(_colliders[0]);
 
         }
 
         if (_interactable != null)
         {
-            _interactable.Interact(this);
-            Debug.Log("Interactable is not null");
-            if (inputs.interact)
-            {
-                if (_interactable_Obj.CompareTag("SafeSpots") && !_playerHide.Hidden) 
-                {
-                    _playerHide.Hidden = true;
-                    _playerHide.HandleHidingPlayer();
-                }
-                
-                if (_interactable_Obj.CompareTag("Toys") && !isPlayerHoldingObject)
-                    _playerPickUpInteraction.PickUpObject(_interactable_Obj);
-                else
-                    _playerPickUpInteraction.MoveObject();
-                
-
-            }
-            else
-            {
-                Debug.Log("Off");
-                if (_interactable_Obj.CompareTag("SafeSpots") && _playerHide.Hidden)
-                {
-                    _playerHide.Hidden = false;
-                    _playerHide.HandleHidingPlayer();
-                }
-
-                if (_interactable_Obj.CompareTag("Toys") && isPlayerHoldingObject)
-                    _playerPickUpInteraction.DropObject();
-
-            }
+            HandleInteractable(isPlayerHoldingObject);
         }
 
     }
 
+    private void SetInteractable( Collider collider)
+    {
+        _interactable = collider.GetComponent<IInteractable>();
+        _interactable_Obj = collider.gameObject;
+        if (!_interaction_Ui.IsDisplayed) _interaction_Ui.SetUp(_interactable.InteractionPrompt);
+    }
 
+    private void ClearInteract()
+    {
+        if (_interactable != null)
+        {
+            _interactable = null;
+            _interaction_Ui.Close();
+        }
+    }
 
-    private void HandleInteractable(IInteractable interactable, GameObject interactable_Obj)
+    private void HandleInteractable(bool isPlayerHoldingObject)
     {
         _interactable.Interact(this);
-        bool isPlayerHoldingObject = _playerPickUpInteraction.IsHoldingObject();
-        switch (interactable_Obj.tag) {
-            case "Toys":
-                if (!isPlayerHoldingObject)
-                    _playerPickUpInteraction.PickUpObject(interactable_Obj);
-                if (isPlayerHoldingObject)
-                    _playerPickUpInteraction.MoveObject();
-                    break;
-            case "SafeSpots":
-                _playerHide.Hidden = true;
-                _playerHide.HandleHidingPlayer();
-                break;
+        Debug.Log("Interactable is not null");
+
+        if (inputs.interact)
+        {
+            HandleInteractOn(isPlayerHoldingObject);
         }
-        return;
+        else
+        {
+            HandleInteractOff(isPlayerHoldingObject);
+        }
+    }
+
+    private void HandleInteractOn(bool isPlayerHoldingObject)
+    {
+        if (_interactable_Obj.CompareTag("SafeSpots") && !_playerHide.Hidden)
+        {
+            _playerHide.Hidden = true;
+            _playerHide.HandleHidingPlayer();
+        }
+
+        if (_interactable_Obj.CompareTag("Toys") && !isPlayerHoldingObject)
+            _playerPickUpInteraction.PickUpObject(_interactable_Obj);
+        else
+            _playerPickUpInteraction.MoveObject();
+    }
+
+    private void HandleInteractOff(bool isPlayerHoldingObject)
+    {
+        Debug.Log("Off");
+        if (_interactable_Obj.CompareTag("SafeSpots") && _playerHide.Hidden)
+        {
+            _playerHide.Hidden = false;
+            _playerHide.HandleHidingPlayer();
+        }
+
+        if (_interactable_Obj.CompareTag("Toys") && isPlayerHoldingObject)
+            _playerPickUpInteraction.DropObject();
     }
 
     private void OnDrawGizmos()
