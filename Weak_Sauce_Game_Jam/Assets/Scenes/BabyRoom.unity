@@ -639,6 +639,11 @@ PrefabInstance:
       propertyPath: skinnedMesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8796177059895646586, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      propertyPath: m_Name
+      value: Hold Area
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 665450967140057143, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
     - {fileID: 8401621567060919300, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -2273,7 +2278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1831065938
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3135,7 +3140,7 @@ PrefabInstance:
     - target: {fileID: 9222025613874093418, guid: e20031c3d1820654b9d6441139a5bb14,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9222025613874093418, guid: e20031c3d1820654b9d6441139a5bb14,
         type: 3}

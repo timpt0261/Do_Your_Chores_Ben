@@ -11,23 +11,13 @@ public class PickUpInteraction : MonoBehaviour
     private CharacterController heldObjectController = null;
     [SerializeField] private float pickupForce = 150.0f;
 
-    public void HandlePickUp(GameObject pickObj = null)
-    {
-        if (heldObject == null)
-            PickUpObject(pickObj);
-        else
-            DropObject();
-
-        if (heldObject != null)
-            MoveObject();
-    }
-
-    public bool HasHeldObject() {
-        return heldObject;
+    public bool IsHoldingObject() {
+        return heldObject != null;
     }
 
     public void MoveObject()
     {
+        Debug.Log("Moving object");
         if (heldObjectRigidbody != null)
         {
             if (Vector3.Distance(heldObject.transform.position, holdArea.position) > 0.1f)
@@ -45,6 +35,7 @@ public class PickUpInteraction : MonoBehaviour
 
     public void PickUpObject(GameObject pickObj)
     {
+        Debug.Log("Picking Up object");
         Rigidbody pickObjRB = pickObj.GetComponent<Rigidbody>();
         CharacterController pickObjController = pickObj.GetComponent<CharacterController>();
 
@@ -68,6 +59,7 @@ public class PickUpInteraction : MonoBehaviour
 
     public void DropObject()
     {
+        Debug.Log("Droping Object");
         if (heldObjectRigidbody != null)
         {
             heldObjectRigidbody.useGravity = true;

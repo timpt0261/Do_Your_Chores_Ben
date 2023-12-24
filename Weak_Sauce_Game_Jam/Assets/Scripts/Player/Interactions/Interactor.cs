@@ -15,66 +15,91 @@ public class Interactor : MonoBehaviour
     private GameObject _interactable_Obj;
 
     [HideInInspector]
-    public HideInteraction playerHide;
+    public  HideInteraction _playerHide;
     private PickUpInteraction _playerPickUpInteraction;
     
 
     private void Start()
     {
         inputs = GetComponent<StarterAssets.StarterAssetsInputs>();
-        playerHide = GetComponent<HideInteraction>();
+        _playerHide = GetComponent<HideInteraction>();
         _playerPickUpInteraction = GetComponent<PickUpInteraction>();
     }
 
-  
 
     private void Update()
     {
         _numfound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
+        bool isPlayerHoldingObject = _playerPickUpInteraction.IsHoldingObject();
+        /*Debug.Log("NumFound: " + _numfound + " Is Holding Object: "  + isPlayerHoldingObject );*/
 
-        if (_numfound > 0)
-        {
+        if (_numfound == 0 && !isPlayerHoldingObject) {
+            if (_interactable != null) {
+                _interactable = null;
+               _interaction_Ui.Close(); 
+            }
+            return;
+        }
+
+        if (_interactable == null && !isPlayerHoldingObject) {
             _interactable = _colliders[0].GetComponent<IInteractable>();
             _interactable_Obj = _colliders[0].gameObject;
+            if (!_interaction_Ui.IsDisplayed) _interaction_Ui.SetUp(_interactable.InteractionPrompt);
 
-            if (_interactable != null)
+        }
+
+        if (_interactable != null)
+        {
+            _interactable.Interact(this);
+            Debug.Log("Interactable is not null");
+            if (inputs.interact)
             {
-                if (!_interaction_Ui.IsDisplayed) _interaction_Ui.SetUp(_interactable.InteractionPrompt);
-
-                if (inputs.interact)
+                if (_interactable_Obj.CompareTag("SafeSpots") && !_playerHide.Hidden) 
                 {
-                    HandleInteractable(_interactable, _interactable_Obj);
+                    _playerHide.Hidden = true;
+                    _playerHide.HandleHidingPlayer();
                 }
+                
+                if (_interactable_Obj.CompareTag("Toys") && !isPlayerHoldingObject)
+                    _playerPickUpInteraction.PickUpObject(_interactable_Obj);
                 else
-                {
-                    playerHide.Hidden = false;
-                    _interactable.Interact(this);
-                }
+                    _playerPickUpInteraction.MoveObject();
+                
 
             }
+            else
+            {
+                Debug.Log("Off");
+                if (_interactable_Obj.CompareTag("SafeSpots") && _playerHide.Hidden)
+                {
+                    _playerHide.Hidden = false;
+                    _playerHide.HandleHidingPlayer();
+                }
 
-        }
-        else
-        {
-            if (_interactable != null) _interactable = null;
-            if (_interaction_Ui.IsDisplayed) _interaction_Ui.Close();
-        }
+                if (_interactable_Obj.CompareTag("Toys") && isPlayerHoldingObject)
+                    _playerPickUpInteraction.DropObject();
 
-        playerHide.HandleHidingPlayer();
-        _playerPickUpInteraction.HandlePickUp();
+            }
+        }
 
     }
+
+
 
     private void HandleInteractable(IInteractable interactable, GameObject interactable_Obj)
     {
         _interactable.Interact(this);
+        bool isPlayerHoldingObject = _playerPickUpInteraction.IsHoldingObject();
         switch (interactable_Obj.tag) {
             case "Toys":
-                _playerPickUpInteraction.HandlePickUp(interactable_Obj);
-                break;
+                if (!isPlayerHoldingObject)
+                    _playerPickUpInteraction.PickUpObject(interactable_Obj);
+                if (isPlayerHoldingObject)
+                    _playerPickUpInteraction.MoveObject();
+                    break;
             case "SafeSpots":
-                playerHide.Hidden = true;
-                playerHide.HandleHidingPlayer();
+                _playerHide.Hidden = true;
+                _playerHide.HandleHidingPlayer();
                 break;
         }
         return;
