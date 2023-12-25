@@ -1,4 +1,4 @@
-# Game Title
+# Do Your Chores Ben
 
 ## Credits
 
@@ -24,36 +24,46 @@
 
 ## About
 
-Stuck in a room with no escape you must complete all your chores before the timer goes down. But Beware a ginat grotestuqe bay monster is haunting you down!
+Stuck in a room with no escape, you must complete all your chores before the timer runs out. But beware, a giant grotesque baby monster is hunting you down!
 
 ## Installation
 
-To install follow our website []
+To install, visit our website [https://timpt0261.itch.io/do-your-chores-ben], where you can download the .exe file and run the game using the main icon.
 
 ## Controls
 
-List the controls for your game, including keyboard, mouse, or controller inputs.
+Move:
+- W
+- A
+- S
+- D
+
+Jump:
+- Space
+
+Run:
+- Left Shift
+
+Interact:
+- Left Mouse Button
 
 ## Gameplay
 
-Provide a short overview of the gameplay mechanics, objectives, and any other relevant information.
+Complete your chores list.
 
-## Screenshots
+Just watch out for the Baby.
 
-Include screenshots or links to gameplay footage to give users a visual preview of your game.
+Escape.
 
 ## Known Issues
 
-Document any known bugs or issues that players may encounter. Include information on how to report problems.
-
-## Contact
-
-Provide contact information for the development team, such as email addresses or social media profiles.
+[12/24/23]
+Our current game is still in development, but feel free to give us more feedback. Current issues range from incomplete animations to mechanics still in progress.
 
 ## License
-[MIT]
+
+This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
 
 ## Acknowledgments
 
-Thank you to the Indie Game Coalltion, and the many people who volunterred in our hours of development.
-
+Special thanks to the Indie Game Coalition and the many people who volunteered during our hours of development.
