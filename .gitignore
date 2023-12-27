@@ -82,3 +82,8 @@ crashlytics-build.properties
 UserSettings/Layouts/default-*
 UserSettings/EditorUserSettings.asset
 *.dwlt
+
+
+# Ignore temporaries from GameCI
+/[Aa]rtifacts/
+/[Cc]odeCoverage/
