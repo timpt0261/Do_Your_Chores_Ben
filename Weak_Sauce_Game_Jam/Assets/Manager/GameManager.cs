@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Current game state
-    private GameState currentState;
+    [SerializeField] private GameState currentState;
 
     // Function to change game state
     public void ChangeState(GameState newState)
@@ -58,4 +58,10 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+
+    public void StartState()
+    {
+        currentState = GameState.Start;
+    }
+
 }

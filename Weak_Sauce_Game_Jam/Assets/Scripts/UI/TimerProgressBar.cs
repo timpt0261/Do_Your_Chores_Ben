@@ -8,6 +8,8 @@ public class TimerProgressBar : MonoBehaviour
     private bool isActive = false;
     [SerializeField] private float currTimer = 120;
     [SerializeField] private float maxTimer = 120;
+    private bool cutscenePlayed = false;
+    public GameManager manager;
 
     private Image timerProgress;
 
@@ -18,7 +20,7 @@ public class TimerProgressBar : MonoBehaviour
 
     private void Update()
     {
-        if (isActive)
+        if (gameObject.activeSelf)
         {
             currTimer -= Time.deltaTime;
             float currFill = currTimer / maxTimer;
@@ -31,21 +33,26 @@ public class TimerProgressBar : MonoBehaviour
             {
                 if (currFill <= 0.33)
                 {
-                    Debug.Log(" In Phase 3");
+                    //Debug.Log(" In Phase 3");
                 }
                 else if (currFill <= 0.66)
                 {
-                    Debug.Log(" In Phase 2");
+                    //Debug.Log(" In Phase 2");
                 }
                 else
                 {
-                    Debug.Log(" In Phase 1");
+                    //Debug.Log(" In Phase 1");
                 }
             }else
             {
                 StopCountdown();
                 //Debug.Log("over");
             }
+        }
+        if (!cutscenePlayed)
+        {
+            manager.StartState();
+            cutscenePlayed = true;
         }
     }
 
