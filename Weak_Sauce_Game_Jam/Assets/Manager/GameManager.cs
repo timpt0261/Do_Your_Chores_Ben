@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 // Interface for GameManager
 public interface IGameManager
@@ -15,6 +17,9 @@ public interface IGameManager
 public class GameManager : MonoBehaviour
 {
     public IGameManager gameManagerEvents;
+    public List<GameObject> toys = new List<GameObject>();
+    public int availbleToys;
+    private static System.Random rnd;
 
     // Game states
     public enum GameState
@@ -62,6 +67,23 @@ public class GameManager : MonoBehaviour
     public void StartState()
     {
         currentState = GameState.Start;
+    }
+
+    void Start()
+    {
+        rnd = new System.Random();
+        toys = toys.OrderBy(a => rnd.Next()).ToList();
+        for(int currToy = 0; currToy < availbleToys; currToy++)
+        {
+            if(currToy < toys.Count)
+            {
+                toys[currToy].SetActive(true);
+            }
+            else
+            {
+                break;
+            }
+        }
     }
 
 }

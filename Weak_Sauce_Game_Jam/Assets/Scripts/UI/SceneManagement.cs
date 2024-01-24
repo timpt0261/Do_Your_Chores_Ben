@@ -5,20 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement: MonoBehaviour
 {
-    public void GoToBabyRoom()
+    public Animator animator;
+
+    public void BabyFade()
     {
-        SceneManager.LoadScene("BabyRoom");
+        animator.SetTrigger("FadeOut");
     }
 
-    public void GoToCredits()
+    public void creditsFade()
     {
-        SceneManager.LoadScene("CreditsScene");
+        animator.SetTrigger("FadeOutCredits");
     }
 
-    public void GoToMenuScene() 
+    public void menuFade() 
     {
-        SceneManager.LoadScene("MenuScene");
-    
+        animator.SetTrigger("FadeOutMenu");
     }
 
     public void GoToGameOverScene() 
