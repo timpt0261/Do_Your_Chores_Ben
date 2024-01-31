@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour, IDamagable, IEnemyMovable,ITriggerCheckable
+public class Enemy : MonoBehaviour, IEnemyMovable, ITriggerCheckable
 {
-    [SerializeField] public float MaxHealth { get; set; } = 100f;
-    [SerializeField] public float CurrentHealth { get; set; }
 
     [field: SerializeField] public int CurrentWaypoint { get; set; } = 0;
     [field: SerializeField] public Transform[] WayPoints { get; set; }
@@ -16,7 +14,7 @@ public class Enemy : MonoBehaviour, IDamagable, IEnemyMovable,ITriggerCheckable
     public bool IsAgrroed { get; set; }
     public bool IsStriking { get; set; }
 
-    [SerializeField] TimerManager timerManager;
+    [SerializeField] private TimerManager timerManager;
     #region Idle Label
     public float timeInIdleState = 90; // in seconds
     [SerializeField] private Transform _idleTransform;
@@ -33,7 +31,7 @@ public class Enemy : MonoBehaviour, IDamagable, IEnemyMovable,ITriggerCheckable
 
     #region Attack
     public PickUpInteraction pickUpInteraction;
-    
+
     #endregion
 
     #region State Machine
@@ -46,7 +44,6 @@ public class Enemy : MonoBehaviour, IDamagable, IEnemyMovable,ITriggerCheckable
     }
     private void Start()
     {
-        CurrentHealth = MaxHealth;
         agent = GetComponent<NavMeshAgent>();
         StateMachine.Initialize();
         pickUpInteraction = GetComponent<PickUpInteraction>();
@@ -58,27 +55,14 @@ public class Enemy : MonoBehaviour, IDamagable, IEnemyMovable,ITriggerCheckable
         StateMachine.FrameUpdate();
     }
 
-    #region Health / Damage
-    public void Damage(float dmageAmount)
-    {
-        CurrentHealth -= dmageAmount;
-        if (CurrentHealth <= 0f)
-            Die();
-    }
-
-    public void Die()
-    {
-        // To Do Later
-
-    }
-
-    #endregion
-
     #region Movement 
 
-    public void SetSpeed(float newSpeed) {
+    public void SetSpeed(float newSpeed)
+    {
+        Debug.Log("Setting Speed to " + newSpeed);
         agent.speed = newSpeed;
     }
+
     public void SetDestination(Vector3 postion = new Vector3(), bool isChasingPalyer = false)
     {
         if (isChasingPalyer)
@@ -101,7 +85,7 @@ public class Enemy : MonoBehaviour, IDamagable, IEnemyMovable,ITriggerCheckable
         }
     }
 
-    public void SetPosition(Vector3 postion = new Vector3(), bool useIdle=false)
+    public void SetPosition(Vector3 postion = new Vector3(), bool useIdle = false)
     {
         if (useIdle)
             this.transform.position = _idleTransform.position;
@@ -111,14 +95,14 @@ public class Enemy : MonoBehaviour, IDamagable, IEnemyMovable,ITriggerCheckable
     #endregion
 
     #region Animation Triggers
-    private void AnimationTriggerEvent(AnimationTriggerType triggerType) 
+    private void AnimationTriggerEvent(AnimationTriggerType triggerType)
     {
         StateMachine.AnimationTriggerEvent(triggerType);
-    
+
     }
-    public enum AnimationTriggerType 
+    public enum AnimationTriggerType
     {
-        EnemyChase, 
+        EnemyChase,
         EnemySearch,
         EnemyAttack
     }
@@ -129,7 +113,7 @@ public class Enemy : MonoBehaviour, IDamagable, IEnemyMovable,ITriggerCheckable
     {
         Debug.Log("IsAgrroed: " + IsAgrroed);
         IsAgrroed = isAgrroed;
-       
+
     }
 
     public void SetIsStrikingBool(bool isStriking)

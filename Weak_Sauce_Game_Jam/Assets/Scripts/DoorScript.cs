@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
     public Animator doorAnimator;
-    // Update is called once per frame
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")

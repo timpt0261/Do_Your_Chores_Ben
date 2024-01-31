@@ -18,19 +18,20 @@ public class EnemyAggroCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == playerTarget && !_hideInteraction.Hidden) {
-            /*Debug.Log("Player Has entered the enemy's aggro range seen");*/
+        if (other.gameObject == playerTarget && !_hideInteraction.Hidden)
+        {
+            Debug.Log("Player Has entered the enemy's aggro range seen");
             _enemy.SetAggroStatus(true);
         }
-        
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-             
+
         if (other.gameObject == playerTarget)
         {
-            /*Debug.Log("Player has exited the enemy's aggro range");*/
+            Debug.Log("Player has exited the enemy's aggro range");
             _enemy.SetAggroStatus(false);
         }
     }

@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-// Interface for GameManager
 public interface IGameManager
 {
     void OnMenu();
@@ -13,15 +12,17 @@ public interface IGameManager
     void OnGameOver();
 }
 
-// GameManager script
 public class GameManager : MonoBehaviour
 {
-    public IGameManager gameManagerEvents;
-    public List<GameObject> toys = new List<GameObject>();
-    public int availbleToys;
+    private IGameManager gameManagerEvents;
+    [SerializeField] private List<GameObject> toys = new List<GameObject>();
+
+    [SerializeField] private List<Transform> spawnPoints = new List<Transform>(); // Use a list of spawn points
+
+    [Range(1, 10)]
+    public int availbleToys = 5;
     private static System.Random rnd;
 
-    // Game states
     public enum GameState
     {
         Menu,
@@ -32,15 +33,12 @@ public class GameManager : MonoBehaviour
         GameOver
     }
 
-    // Current game state
     [SerializeField] private GameState currentState;
 
-    // Function to change game state
     public void ChangeState(GameState newState)
     {
         currentState = newState;
 
-        // Call the appropriate function based on the state change
         switch (newState)
         {
             case GameState.Menu:
@@ -69,21 +67,34 @@ public class GameManager : MonoBehaviour
         currentState = GameState.Start;
     }
 
-    void Start()
+    void Awake()
+    {
+        SpawnToys();
+    }
+
+    private void SpawnToys()
     {
         rnd = new System.Random();
         toys = toys.OrderBy(a => rnd.Next()).ToList();
-        for(int currToy = 0; currToy < availbleToys; currToy++)
+
+        for (int currToy = 0; currToy < availbleToys; currToy++)
         {
-            if(currToy < toys.Count)
+            if (currToy < toys.Count)
             {
                 toys[currToy].SetActive(true);
-            }
-            else
-            {
-                break;
+
+                // Use modulo to loop through spawn points in a circular manner
+                Transform spawnPoint = spawnPoints[currToy % spawnPoints.Count];
+                toys[currToy].transform.position = RandomPosition(spawnPoint);
             }
         }
     }
 
+    private Vector3 RandomPosition(Transform spawnPoint)
+    {
+        float x = Random.Range(spawnPoint.position.x - spawnPoint.localScale.x / 2, spawnPoint.position.x + spawnPoint.localScale.x / 2);
+        float y = 2.5f;
+        float z = Random.Range(spawnPoint.position.z - spawnPoint.localScale.z / 2, spawnPoint.position.z + spawnPoint.localScale.z / 2);
+        return new Vector3(x, y, z);
+    }
 }

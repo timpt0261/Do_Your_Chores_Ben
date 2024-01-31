@@ -30,7 +30,7 @@ public class EnemyStrikingDistanceCheck : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        
+
         if (other.gameObject == playerTarget)
         {
             /*Debug.Log("Player has exited the enemy's striking zone");*/

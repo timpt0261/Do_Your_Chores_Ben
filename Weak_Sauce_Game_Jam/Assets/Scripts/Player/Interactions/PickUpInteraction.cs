@@ -17,7 +17,7 @@ public class PickUpInteraction : MonoBehaviour
 
     public void MoveObject()
     {
-        Debug.Log("Moving object");
+        // Debug.Log("Moving object");
         if (heldObjectRigidbody != null)
         {
             if (Vector3.Distance(heldObject.transform.position, holdArea.position) > 0.1f)

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EnemyStateMachine
-{ 
+{
     private Enemy _enemy;
     private GameObject _playerTarget;
     private enum States { IDLE, SEARCH, CHASE, ATTACK }
@@ -19,8 +17,8 @@ public class EnemyStateMachine
     private float _timeInSearchState;
     //private bool _searchTimerIsRunning = false;
 
-     // Search Lables 
-    private float _chaseSpeed = 4.5f;
+    // Search Lables 
+    private float _chaseSpeed;
 
     // Attack Lables
     PickUpInteraction _pickUpInteraction;
@@ -29,7 +27,7 @@ public class EnemyStateMachine
     {
         _enemy = enemy;
         _playerTarget = GameObject.FindGameObjectWithTag("Player");
-        
+
         _movementSpeed = enemy.movementSpeed;
         _timeInIdleState = enemy.timeInIdleState;
 
@@ -41,16 +39,18 @@ public class EnemyStateMachine
 
     #region State Manipulation
 
-    public void Initialize() {
+    public void Initialize()
+    {
         currentState = States.IDLE;
         EnterState();
     }
     public void EnterState()
     {
-        /*Debug.Log("Entering Next State");*/
+        Debug.Log("Entering the " + currentState + " State");
         switch (currentState)
         {
             case States.IDLE:
+
                 _timeInIdleState = _enemy.timeInIdleState;
                 _idleTimerIsRunning = true;
                 _enemy.SetPosition(default, true);
@@ -65,7 +65,7 @@ public class EnemyStateMachine
                 _enemy.SetDestination(_playerTarget.transform.position, true);
                 break;
             case States.ATTACK:
-                SceneManager.LoadScene("GameOverScene");
+                // SceneManager.LoadScene("GameOverScene");
                 break;
             default:
                 break;
@@ -98,30 +98,29 @@ public class EnemyStateMachine
         switch (currentState)
         {
             case States.IDLE:
-               /* Debug.Log("Current State Idle");*/
+                // Debug.Log("Current State Idle");
                 HandleIdleFrameUpdate();
                 break;
             case States.SEARCH:
-/*                Debug.Log("Current State Search");*/
+                // Debug.Log("Current State Search");
                 HandleSearchFrameUpdate();
                 break;
             case States.CHASE:
-/*                Debug.Log("Current State Chase");*/
+                // Debug.Log("Current State Chase");
                 HandleChaseFrameUpdate();
                 break;
             case States.ATTACK:
-/*                Debug.Log("Game Over");*/
-    
+                //Debug.Log("Game Over");
                 break;
             default:
                 break;
         }
 
-        
+
     }
 
 
-    public  void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
+    public void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
 
 
@@ -155,7 +154,7 @@ public class EnemyStateMachine
     {
         if (_enemy.IsAgrroed)
         {
-           ChangeState(States.CHASE);
+            ChangeState(States.CHASE);
         }
 
         _enemy.NextDestination();
@@ -163,7 +162,7 @@ public class EnemyStateMachine
 
     private void HandleChaseFrameUpdate()
     {
-        
+
         if (!_enemy.IsAgrroed)
         {
             ChangeState(States.SEARCH);
@@ -173,18 +172,21 @@ public class EnemyStateMachine
         {
             this.ChangeState(States.ATTACK);
         }
-        var  _newChaseSpeed = _chaseSpeed + (.45f * (Time.deltaTime / 10));
-        _enemy.SetSpeed(_newChaseSpeed);
         _enemy.SetDestination(_playerTarget.transform.position, true);
+        _chaseSpeed += 2.0f * Time.deltaTime;
+        _enemy.SetSpeed(_chaseSpeed);
+
+
     }
     #endregion
-     
-   private void ChangeState(States newState){
-     ExitState();
-     currentState = newState;
-     EnterState();
-   }
-  
+
+    private void ChangeState(States newState)
+    {
+        ExitState();
+        currentState = newState;
+        EnterState();
+    }
+
     private void DisplayTime(float timeInIdleState)
     {
         float minutes = Mathf.FloorToInt(timeInIdleState / 60);
