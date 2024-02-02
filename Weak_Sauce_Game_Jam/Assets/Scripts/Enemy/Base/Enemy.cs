@@ -38,9 +38,13 @@ public class Enemy : MonoBehaviour, IEnemyMovable, ITriggerCheckable
     public EnemyStateMachine StateMachine { get; set; }
     #endregion
 
+    [SerializeField] private AudioSource _enemyAudio;
     private void Awake()
     {
+        _enemyAudio = GetComponent<AudioSource>();
+        _enemyAudio.volume = 0.0f;
         StateMachine = new EnemyStateMachine(this);
+
     }
     private void Start()
     {
@@ -121,5 +125,17 @@ public class Enemy : MonoBehaviour, IEnemyMovable, ITriggerCheckable
         Debug.Log("IsStriking: " + IsStriking);
         IsStriking = isStriking;
     }
+    #endregion
+
+    #region Audio
+
+    public void PlayAudio(){
+        _enemyAudio.Play();
+    }
+    public void SetVolume(float volume)
+    {
+        _enemyAudio.volume = Mathf.Lerp(0.0f, 1.0f, volume);
+    }
+
     #endregion
 }

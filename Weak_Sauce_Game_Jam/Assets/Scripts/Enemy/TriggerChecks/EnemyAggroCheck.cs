@@ -26,6 +26,13 @@ public class EnemyAggroCheck : MonoBehaviour
 
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject == playerTarget)
+            _enemy.SetAggroStatus(!_hideInteraction.Hidden);
+
+    }
+
     private void OnTriggerExit(Collider other)
     {
 

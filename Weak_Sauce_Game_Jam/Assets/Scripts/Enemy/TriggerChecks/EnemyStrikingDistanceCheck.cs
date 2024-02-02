@@ -26,6 +26,12 @@ public class EnemyStrikingDistanceCheck : MonoBehaviour
 
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject == playerTarget)
+            _enemy.SetIsStrikingBool(!_hideInteraction.Hidden);
+    }
+
 
 
     private void OnTriggerExit(Collider other)

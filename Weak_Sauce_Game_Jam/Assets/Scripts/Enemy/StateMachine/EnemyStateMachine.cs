@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -65,7 +66,7 @@ public class EnemyStateMachine
                 _enemy.SetDestination(_playerTarget.transform.position, true);
                 break;
             case States.ATTACK:
-                // SceneManager.LoadScene("GameOverScene");
+                SceneManager.LoadScene("GameOverScene");
                 break;
             default:
                 break;
@@ -98,19 +99,19 @@ public class EnemyStateMachine
         switch (currentState)
         {
             case States.IDLE:
-                // Debug.Log("Current State Idle");
+                Debug.Log("Current State Idle");
                 HandleIdleFrameUpdate();
                 break;
             case States.SEARCH:
-                // Debug.Log("Current State Search");
+                Debug.Log("Current State Search");
                 HandleSearchFrameUpdate();
                 break;
             case States.CHASE:
-                // Debug.Log("Current State Chase");
+                Debug.Log("Current State Chase");
                 HandleChaseFrameUpdate();
                 break;
             case States.ATTACK:
-                //Debug.Log("Game Over");
+                Debug.Log("Game Over");
                 break;
             default:
                 break;
@@ -154,6 +155,7 @@ public class EnemyStateMachine
     {
         if (_enemy.IsAgrroed)
         {
+            _enemy.SetVolume(1.0f);
             ChangeState(States.CHASE);
         }
 
@@ -165,7 +167,9 @@ public class EnemyStateMachine
 
         if (!_enemy.IsAgrroed)
         {
+            _enemy.SetVolume(0.5f);
             ChangeState(States.SEARCH);
+
         }
 
         if (_enemy.IsStriking)
@@ -173,10 +177,7 @@ public class EnemyStateMachine
             this.ChangeState(States.ATTACK);
         }
         _enemy.SetDestination(_playerTarget.transform.position, true);
-        _chaseSpeed += 2.0f * Time.deltaTime;
-        _enemy.SetSpeed(_chaseSpeed);
-
-
+        
     }
     #endregion
 
