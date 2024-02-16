@@ -19,6 +19,16 @@ public class Enemy : MonoBehaviour, IEnemyMovable, ITriggerCheckable
     public float timeInIdleState = 90; // in seconds
     [SerializeField] private Transform _idleTransform;
 
+    // [Header("Audio")]
+
+    // AudioClip enemyScream;
+
+    // AudioClip enemyCry;
+
+    // AudioSource source;
+
+
+
     #endregion
     #region Search
     public float timeinSearchState = 120;
@@ -129,7 +139,8 @@ public class Enemy : MonoBehaviour, IEnemyMovable, ITriggerCheckable
 
     #region Audio
 
-    public void PlayAudio(){
+    public void PlayAudio()
+    {
         _enemyAudio.Play();
     }
     public void SetVolume(float volume)
