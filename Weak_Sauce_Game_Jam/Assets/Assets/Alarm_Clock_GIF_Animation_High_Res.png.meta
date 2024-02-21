@@ -67,12 +67,12 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -91,6 +91,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -7688,8 +7712,8 @@ TextureImporter:
       Alarm_Clock_GIF_Animation_High_Res_133: 445732730
       Alarm_Clock_GIF_Animation_High_Res_118: 1021486183
       Alarm_Clock_GIF_Animation_High_Res_177: -1145335923
-      Alarm_Clock_GIF_Animation_High_Res_76: -183821088
       Alarm_Clock_GIF_Animation_High_Res_355: -828703814
+      Alarm_Clock_GIF_Animation_High_Res_76: -183821088
       Alarm_Clock_GIF_Animation_High_Res_306: -1427021646
       Alarm_Clock_GIF_Animation_High_Res_345: 32859049
       Alarm_Clock_GIF_Animation_High_Res_54: 554264162
@@ -7827,12 +7851,12 @@ TextureImporter:
       Alarm_Clock_GIF_Animation_High_Res_232: -1546743554
       Alarm_Clock_GIF_Animation_High_Res_175: 1475846201
       Alarm_Clock_GIF_Animation_High_Res_6: 1560292298
-      Alarm_Clock_GIF_Animation_High_Res_41: 222986662
-      Alarm_Clock_GIF_Animation_High_Res_230: 213134405
-      Alarm_Clock_GIF_Animation_High_Res_320: -1986496572
       Alarm_Clock_GIF_Animation_High_Res_192: -148893489
-      Alarm_Clock_GIF_Animation_High_Res_182: 888480165
       Alarm_Clock_GIF_Animation_High_Res_288: -922204601
+      Alarm_Clock_GIF_Animation_High_Res_230: 213134405
+      Alarm_Clock_GIF_Animation_High_Res_182: 888480165
+      Alarm_Clock_GIF_Animation_High_Res_41: 222986662
+      Alarm_Clock_GIF_Animation_High_Res_320: -1986496572
       Alarm_Clock_GIF_Animation_High_Res_23: 1393877022
       Alarm_Clock_GIF_Animation_High_Res_38: -1331073331
       Alarm_Clock_GIF_Animation_High_Res_285: -1180517499

@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/BabyRoom.unity
-    guid: 34ac3e5a22193f5479fba1c66fe3200f
+    path: Assets/Scenes/MainRoom.unity
+    guid: 26e2762d273ba744399bc37d16f96179
   - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: 1ecc572c6aaf00f488f454a3d540bb5b
