@@ -10,7 +10,7 @@ public class Barrier : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && scoreManger.playerScore < 10)
+        if (other.gameObject.tag == "Player" && (scoreManger.getTotalScore()) < 10)
         {
             SceneManager.LoadScene("GameOverScene");
         }

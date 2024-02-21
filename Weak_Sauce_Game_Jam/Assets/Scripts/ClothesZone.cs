@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjZone : MonoBehaviour
+public class ClothesZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Toys")
+        if (other.gameObject.tag == "Player")
         {
-            ScoreManager.Instance.addToyScore();
+            ScoreManager.Instance.addClothesScore();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Toys")
+        if (other.gameObject.tag == "Player")
         {
-            ScoreManager.Instance.subtractToyScore();
+            ScoreManager.Instance.subtractClothesScore();
         }
     }
-
 }
