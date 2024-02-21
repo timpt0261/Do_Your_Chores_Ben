@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4456872750616479551
 Transform:
@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328048181959992289}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.29, y: 0.81, z: -1.31}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.05178239, y: 0.9466388, z: 0.19509201, w: 0.25126204}
+  m_LocalPosition: {x: -0.37, y: 0.83, z: 0.98}
+  m_LocalScale: {x: 0.44843048, y: 0.44843048, z: 0.44843048}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8080312703252881146}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 9.201}
 --- !u!1 &827520979606478791
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,7 +48,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8873448260116896267
 Transform:
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 2.487538, z: -2.998566}
+  m_FollowOffset: {x: 0, y: 1.593107, z: -2.503141}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -100,9 +100,9 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 2
+    m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: 0
+    m_Bias: 10
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -174,7 +174,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6570626450002992888
 Transform:
@@ -183,8 +183,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3885897097434495650}
-  m_LocalRotation: {x: -0, y: -0.9931401, z: 0, w: -0.116930485}
-  m_LocalPosition: {x: -0.44, y: 0.93, z: -0.2}
+  m_LocalRotation: {x: -0.05178239, y: 0.9466388, z: 0.19509201, w: 0.25126204}
+  m_LocalPosition: {x: -0.5649171, y: 1.5443976, z: -0.12543201}
   m_LocalScale: {x: 0.44843048, y: 0.44843048, z: 0.44843048}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -193,7 +193,7 @@ Transform:
   - {fileID: 8300480978979409588}
   m_Father: {fileID: 8080312703252881146}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -193.43, z: 0}
+  m_LocalEulerAnglesHint: {x: -23.29, y: 150.27, z: 0}
 --- !u!114 &5643887498560697924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,9 +211,9 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 0
+  m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 4456872750616479551}
   m_CommonLens: 1
   m_Lens:
     FieldOfView: 40
@@ -235,11 +235,11 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.49766153
     m_SpeedMode: 0
-    m_MaxSpeed: 2
+    m_MaxSpeed: 0.9
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
-    m_InputAxisValue: 0
+    m_InputAxisValue: -0
     m_InvertInput: 0
     m_MinValue: 0
     m_MaxValue: 1
@@ -259,15 +259,15 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 10
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
     m_InvertInput: 1
-    m_MinValue: -180
-    m_MaxValue: 180
-    m_Wrap: 1
+    m_MinValue: -10
+    m_MaxValue: 10
+    m_Wrap: 0
     m_Recentering:
       m_enabled: 0
       m_WaitTime: 1
@@ -275,9 +275,9 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: -1
       m_LegacyVelocityFilterStrength: -1
   m_Heading:
-    m_Definition: 2
+    m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: 0
+    m_Bias: 10
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -285,14 +285,14 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_BindingMode: 4
-  m_SplineCurvature: 0.2
+  m_SplineCurvature: 0.443
   m_Orbits:
-  - m_Height: 4.5
-    m_Radius: 1.75
-  - m_Height: 2.5
-    m_Radius: 3
-  - m_Height: 0.4
-    m_Radius: 1.3
+  - m_Height: 2.16
+    m_Radius: 1
+  - m_Height: 1.6
+    m_Radius: 2.5
+  - m_Height: 0
+    m_Radius: 2
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 3835896021220443710}
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerIndex: -1
   AutoEnableInputs: 1
-  XYAxis: {fileID: -5630151704836100654, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  XYAxis: {fileID: -3787169064211337688, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
   ZAxis: {fileID: 0}
 --- !u!1 &4585772395794396484
 GameObject:
@@ -331,7 +331,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8932163440338492965
 Transform:
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 2.487538, z: -2.998566}
+  m_FollowOffset: {x: 0, y: 1.593107, z: -2.503141}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -383,9 +383,9 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 2
+    m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: 0
+    m_Bias: 10
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -458,7 +458,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1243783141787290320
 Transform:
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 2.487538, z: -2.998566}
+  m_FollowOffset: {x: 0, y: 1.593107, z: -2.503141}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -510,9 +510,9 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 2
+    m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: 0
+    m_Bias: 10
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -583,7 +583,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8300480978979409588
 Transform:
@@ -592,8 +592,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6369791533011335279}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.16613631, y: 0.0022342505, z: 0.0005457588, w: 0.98610014}
+  m_LocalPosition: {x: -0.0000005273281, y: 0.0000003650911, z: -0.0000008481394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -625,7 +625,7 @@ MonoBehaviour:
   m_LockStageInInspector: 00000000
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 0
+  m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -661,7 +661,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2923231563673332894
 Transform:
@@ -670,8 +670,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6385308568764737722}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.16670845, y: 0.5774638, z: 0.116274446, w: 0.79071116}
+  m_LocalPosition: {x: -0.0000005273281, y: 0.0000003650911, z: -0.0000008481394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -703,7 +703,7 @@ MonoBehaviour:
   m_LockStageInInspector: 00000000
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 0
+  m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -740,7 +740,7 @@ GameObject:
   m_TagString: SafeSpots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8080312703000364257
 Transform:
@@ -824,7 +824,7 @@ GameObject:
   m_TagString: SafeSpots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8080312703138563181
 Transform:
@@ -918,7 +918,7 @@ GameObject:
   m_TagString: SafeSpots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8080312703138563183
 Transform:
@@ -953,7 +953,7 @@ GameObject:
   m_TagString: SafeSpots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8080312703252881146
 Transform:
@@ -1018,7 +1018,7 @@ GameObject:
   m_TagString: SafeSpots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8080312703429268381
 Transform:
@@ -1100,7 +1100,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6259049768086476370
 Transform:
@@ -1109,8 +1109,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8725805137070695072}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.18399826, y: 0.002243787, z: 0.00050513825, w: 0.98292387}
+  m_LocalPosition: {x: -0.0000005273281, y: 0.0000003650911, z: -0.0000008481394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1142,7 +1142,7 @@ MonoBehaviour:
   m_LockStageInInspector: 00000000
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 0
+  m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
