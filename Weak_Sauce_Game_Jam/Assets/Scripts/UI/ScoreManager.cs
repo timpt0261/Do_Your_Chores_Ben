@@ -22,27 +22,58 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-        scoreText.text = ("Score: " + playerScore);
+        scoreText.text = ("Toys put away: " + toyScore + "\nClothes put away: " + clothesScore + "\nDishes put away: " + dishesScore);
     }
     [SerializeField]
-    public int playerScore = 0;
+    public int toyScore = 0;
+    public int clothesScore = 0;
+    public int dishesScore = 0;
     public TextMeshProUGUI scoreText;
 
-    public void addScore(int scoreChange = 1)
+    public void addToyScore(int scoreChange = 1)
     {
-        playerScore += scoreChange;
-        scoreText.text = ("Score: " + playerScore);
+        toyScore += scoreChange;
+        scoreText.text = ("Toys put away: " + toyScore + "\nClothes put away: " + clothesScore + "\nDishes put away: " + dishesScore);
     }
 
-    public void subtractScore(int scoreChange = 1)
+    public void subtractToyScore(int scoreChange = 1)
     {
-        playerScore -= scoreChange;
-        scoreText.text = ("Score: " + playerScore);
+        toyScore -= scoreChange;
+        scoreText.text = ("Toys put away: " + toyScore + "\nClothes put away: " + clothesScore + "\nDishes put away: " + dishesScore);
+    }
+
+    public void addClothesScore(int scoreChange = 1)
+    {
+        clothesScore += scoreChange;
+        scoreText.text = ("Toys put away: " + toyScore + "\nClothes put away: " + clothesScore + "\nDishes put away: " + dishesScore);
+    }
+
+    public void subtractClothesScore(int scoreChange = 1)
+    {
+        clothesScore -= scoreChange;
+        scoreText.text = ("Toys put away: " + toyScore + "\nClothes put away: " + clothesScore + "\nDishes put away: " + dishesScore);
+    }
+
+    public void addDishesScore(int scoreChange = 1)
+    {
+        dishesScore += scoreChange;
+        scoreText.text = ("Toys put away: " + toyScore + "\nClothes put away: " + clothesScore + "\nDishes put away: " + dishesScore);
+    }
+
+    public void subtractDishesScore(int scoreChange = 1)
+    {
+        dishesScore -= scoreChange;
+        scoreText.text = ("Toys put away: " + toyScore + "\nClothes put away: " + clothesScore + "\nDishes put away: " + dishesScore);
+    }
+
+    public int getTotalScore()
+    {
+        return (toyScore + clothesScore + dishesScore);
     }
 
     public void Update()
     {
-        if (playerScore == 10)
+        if (getTotalScore() == 10)
             SceneManager.LoadScene("WinningScene");
     }
 }
