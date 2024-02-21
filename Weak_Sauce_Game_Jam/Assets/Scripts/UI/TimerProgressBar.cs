@@ -1,13 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
+using TMPro;
+using UnityEngine.InputSystem;
 
 public class TimerProgressBar : MonoBehaviour
 {
     private bool isActive = false;
     [SerializeField] private float currTimer = 120;
     [SerializeField] private float maxTimer = 120;
+    [SerializeField] private TextMeshProUGUI notifcation;
+
+    [SerializeField] private Animator animator;
+
     private bool cutscenePlayed = false;
     public GameManager manager;
 
@@ -29,21 +35,13 @@ public class TimerProgressBar : MonoBehaviour
                 currFill = 0;
             }
             timerProgress.fillAmount = currFill;
-            if(currFill != 0)
+            if (currFill != 0)
             {
-                if (currFill <= 0.33)
-                {
-                    //Debug.Log(" In Phase 3");
-                }
-                else if (currFill <= 0.66)
-                {
-                    //Debug.Log(" In Phase 2");
-                }
-                else
-                {
-                    //Debug.Log(" In Phase 1");
-                }
-            }else
+                Debug.Log(UpdateText(currTimer));
+                notifcation.text = UpdateText(currTimer);
+
+            }
+            else
             {
                 StopCountdown();
                 //Debug.Log("over");
@@ -66,5 +64,13 @@ public class TimerProgressBar : MonoBehaviour
     public void StopCountdown()
     {
         isActive = false;
+        SceneManager.LoadScene("GameOverScene");
+    }
+
+    private string UpdateText(float time)
+    {
+        float minutes = Mathf.FloorToInt(time / 60);
+        float seconds = Mathf.FloorToInt(time % 60);
+        return minutes + ":" + seconds + "\n Left To Finish Your Chores";
     }
 }

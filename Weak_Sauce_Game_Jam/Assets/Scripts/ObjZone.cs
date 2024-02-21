@@ -9,6 +9,7 @@ public class ObjZone : MonoBehaviour
         if (other.gameObject.tag == "Toys")
         {
             ScoreManager.Instance.addToyScore();
+            Destroy(other.gameObject);
         }
     }
 

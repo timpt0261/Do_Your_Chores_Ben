@@ -670,7 +670,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2072477416}
         m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
-        m_MethodName: BabyFade
+        m_MethodName: mainFade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
