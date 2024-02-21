@@ -25,7 +25,7 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = ("Score: " + playerScore);
     }
     [SerializeField]
-    private int playerScore = 0;
+    public int playerScore = 0;
     public TextMeshProUGUI scoreText;
 
     public void addScore(int scoreChange = 1)
