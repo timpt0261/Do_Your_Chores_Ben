@@ -1244,7 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39f40e6632675c4095f4258a0516f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 272356088}
 --- !u!1 &772609658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9222025613874093418, guid: e20031c3d1820654b9d6441139a5bb14,
@@ -3980,7 +3980,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 547683921}
         m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
-        m_MethodName: menuFade
+        m_MethodName: mainFade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
