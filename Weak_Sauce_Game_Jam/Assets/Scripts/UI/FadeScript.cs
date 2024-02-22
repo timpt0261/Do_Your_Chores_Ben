@@ -7,7 +7,7 @@ public class FadeScript : MonoBehaviour
 {
     public void GoToBabyRoom()
     {
-        SceneManager.LoadScene("BabyRoom");
+        SceneManager.LoadScene("MainRoom");
     }
 
     public void GoToCredits()

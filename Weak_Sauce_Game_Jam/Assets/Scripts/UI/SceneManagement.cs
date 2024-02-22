@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManagement: MonoBehaviour
+public class SceneManagement : MonoBehaviour
 {
     public Animator animator;
 
-    public void BabyFade()
+    public void mainFade()
     {
         animator.SetTrigger("FadeOut");
     }
@@ -17,15 +17,15 @@ public class SceneManagement: MonoBehaviour
         animator.SetTrigger("FadeOutCredits");
     }
 
-    public void menuFade() 
+    public void menuFade()
     {
         animator.SetTrigger("FadeOutMenu");
     }
 
-    public void GoToGameOverScene() 
+    public void GoToGameOverScene()
     {
         SceneManager.LoadScene("GameOverScene");
-    
+
     }
 
     public void ExitGame()

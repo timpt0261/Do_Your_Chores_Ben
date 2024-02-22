@@ -22,7 +22,7 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-        scoreText.text = ("Toys put away: " + toyScore + "\nClothes put away: " + clothesScore + "\nDishes put away: " + dishesScore);
+        scoreText.text = ("Toys put away: " + toyScore);
     }
     [SerializeField]
     public int toyScore = 0;
@@ -33,13 +33,13 @@ public class ScoreManager : MonoBehaviour
     public void addToyScore(int scoreChange = 1)
     {
         toyScore += scoreChange;
-        scoreText.text = ("Toys put away: " + toyScore + "\nClothes put away: " + clothesScore + "\nDishes put away: " + dishesScore);
+        scoreText.text = ("Toys put away: " + toyScore);
     }
 
     public void subtractToyScore(int scoreChange = 1)
     {
         toyScore -= scoreChange;
-        scoreText.text = ("Toys put away: " + toyScore + "\nClothes put away: " + clothesScore + "\nDishes put away: " + dishesScore);
+        scoreText.text = ("Toys put away: " + toyScore + "\n");
     }
 
     public void addClothesScore(int scoreChange = 1)

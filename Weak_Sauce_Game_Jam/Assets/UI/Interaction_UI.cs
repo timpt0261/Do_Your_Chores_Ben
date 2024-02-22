@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 using TMPro;
 
 public class Interaction_UI : MonoBehaviour
