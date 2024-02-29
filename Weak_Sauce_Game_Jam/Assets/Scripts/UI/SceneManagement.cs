@@ -9,6 +9,7 @@ public class SceneManagement : MonoBehaviour
 
     public void mainFade()
     {
+        Cursor.visible = false;
         animator.SetTrigger("FadeOut");
     }
 
@@ -20,12 +21,6 @@ public class SceneManagement : MonoBehaviour
     public void menuFade()
     {
         animator.SetTrigger("FadeOutMenu");
-    }
-
-    public void GoToGameOverScene()
-    {
-        SceneManager.LoadScene("GameOverScene");
-
     }
 
     public void ExitGame()

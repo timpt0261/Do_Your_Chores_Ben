@@ -66,6 +66,7 @@ public class EnemyStateMachine
                 _enemy.SetDestination(_playerTarget.transform.position, true);
                 break;
             case States.ATTACK:
+                Cursor.visible = true;
                 SceneManager.LoadScene("GameOverScene");
                 break;
             default:
