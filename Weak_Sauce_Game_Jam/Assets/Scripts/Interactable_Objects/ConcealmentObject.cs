@@ -9,11 +9,11 @@ public class ConcealmentObject : MonoBehaviour, IInteractable
     public string InteractionPrompt => _prompt;
 
     [SerializeField] private CinemachineVirtualCamera playerFollow;
-    [SerializeField] private CinemachineFreeLook closetCamera;
+    [SerializeField] private CinemachineVirtualCamera closetCamera;
 
     private void Start()
     {
-        closetCamera = GetComponentInChildren<CinemachineFreeLook>();
+        closetCamera = GetComponentInChildren<CinemachineVirtualCamera>();
         playerFollow.enabled = true;
         closetCamera.enabled = false;
     }
