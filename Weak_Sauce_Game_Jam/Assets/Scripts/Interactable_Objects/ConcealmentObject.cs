@@ -14,7 +14,6 @@ public class ConcealmentObject : MonoBehaviour, IInteractable
     private void Start()
     {
         closetCamera = GetComponentInChildren<CinemachineVirtualCamera>();
-        playerFollow.enabled = true;
         closetCamera.enabled = false;
     }
 
