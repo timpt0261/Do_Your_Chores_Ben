@@ -6,7 +6,7 @@ public class DishesZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Dishes")
         {
             ScoreManager.Instance.addDishesScore();
         }
@@ -14,7 +14,7 @@ public class DishesZone : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Dishes")
         {
             ScoreManager.Instance.subtractDishesScore();
         }

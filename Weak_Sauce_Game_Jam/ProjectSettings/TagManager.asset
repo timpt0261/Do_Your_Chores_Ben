@@ -10,6 +10,7 @@ TagManager:
   - Toys
   - Interactable
   - Enemy
+  - Clothes
   layers:
   - Default
   - TransparentFX

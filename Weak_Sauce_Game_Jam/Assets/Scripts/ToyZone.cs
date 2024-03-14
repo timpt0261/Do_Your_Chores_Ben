@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjZone : MonoBehaviour
+public class ToyZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
